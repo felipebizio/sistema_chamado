@@ -4,16 +4,18 @@
  */
 package com.mycompany.ll_suporte;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author felip
  */
-public class tela_cadastro_usuário extends javax.swing.JFrame {
+public class tela_cadastro_usuario extends javax.swing.JFrame {
 
     /**
      * Creates new form tela_cadastro_usuário
      */
-    public tela_cadastro_usuário() {
+    public tela_cadastro_usuario() {
         initComponents();
     }
 
@@ -77,11 +79,21 @@ public class tela_cadastro_usuário extends javax.swing.JFrame {
         btCriar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btCriar.setText("Criar");
         btCriar.setBorder(null);
+        btCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCriarActionPerformed(evt);
+            }
+        });
 
         btCancelar.setBackground(new java.awt.Color(65, 82, 179));
         btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setBorder(null);
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo250x150.png")); // NOI18N
 
@@ -172,6 +184,22 @@ public class tela_cadastro_usuário extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        tela_cadastro_usuario.this.dispose();
+        tela_login btnCancelar = new tela_login();
+        btnCancelar.setVisible(true);
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
+        // TODO add your handling code here:
+        tela_cadastro_usuario.this.dispose();
+        tela_login btnCriar = new tela_login();
+        btnCriar.setVisible(true);
+        JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+    }//GEN-LAST:event_btCriarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,20 +217,21 @@ public class tela_cadastro_usuário extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tela_cadastro_usuário.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_cadastro_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tela_cadastro_usuário.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_cadastro_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tela_cadastro_usuário.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_cadastro_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tela_cadastro_usuário.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_cadastro_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tela_cadastro_usuário().setVisible(true);
+                new tela_cadastro_usuario().setVisible(true);
             }
         });
     }

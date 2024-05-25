@@ -8,12 +8,12 @@ package com.mycompany.ll_suporte;
  *
  * @author felip
  */
-public class tela_lista_chamados extends javax.swing.JFrame {
+public class tela_detalhe_chamado extends javax.swing.JFrame {
 
     /**
-     * Creates new form tela_lista_chamados
+     * Creates new form tela_detalhe_chamado
      */
-    public tela_lista_chamados() {
+    public tela_detalhe_chamado() {
         initComponents();
     }
 
@@ -28,11 +28,9 @@ public class tela_lista_chamados extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        lbNomeDetalheChamado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbListaChamados = new javax.swing.JTable();
-        txtPesquisarChamado = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
+        btnFechar = new javax.swing.JButton();
         lbNovoChamado = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
@@ -41,61 +39,49 @@ public class tela_lista_chamados extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(123, 150, 212));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setText("LISTA DE CHAMADOS");
+        lbNomeDetalheChamado.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbNomeDetalheChamado.setText("DETALHES DO CHAMADO");
 
-        tbListaChamados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setText("Número:");
 
-            },
-            new String [] {
-                "Status", "Chamado", "Abertura", "Funcionario", "Usuario", "Categoria", "Titulo", "Grupo", "Prioridade", "Prazo", "Responsavel"
+        btnFechar.setBackground(new java.awt.Color(123, 150, 212));
+        btnFechar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnFechar.setText("Fechar");
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(tbListaChamados);
-
-        txtPesquisarChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txtPesquisarChamado.setForeground(new java.awt.Color(204, 204, 204));
-        txtPesquisarChamado.setText("Pesquise um chamado...");
-
-        btnPesquisar.setBackground(new java.awt.Color(123, 150, 212));
-        btnPesquisar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnPesquisar.setText("Pesquisar");
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtPesquisarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPesquisar)
-                        .addGap(67, 67, 67))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(lbNomeDetalheChamado))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1)))
+                .addContainerGap(417, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnFechar)
+                .addGap(70, 70, 70))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(32, 32, 32)
+                .addComponent(lbNomeDetalheChamado)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPesquisarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(btnFechar)
+                .addGap(38, 38, 38))
         );
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -127,26 +113,28 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(lbNovoChamado)
-                .addGap(18, 18, 18)
-                .addComponent(lbNovoColaborador)
-                .addGap(18, 18, 18)
-                .addComponent(lbConsultar)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(170, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbNovoChamado)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbNovoColaborador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbConsultar)
+                        .addGap(281, 281, 281))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNovoChamado)
                     .addComponent(lbNovoColaborador)
+                    .addComponent(lbNovoChamado)
                     .addComponent(lbConsultar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -155,13 +143,16 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -169,24 +160,31 @@ public class tela_lista_chamados extends javax.swing.JFrame {
 
     private void lbNovoChamadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoChamadoMouseClicked
         // TODO add your handling code here:
-        tela_lista_chamados.this.dispose();
+        tela_detalhe_chamado.this.dispose();
         tela_abertura_chamados lbNovoChamado = new tela_abertura_chamados();
         lbNovoChamado.setVisible(true);
     }//GEN-LAST:event_lbNovoChamadoMouseClicked
 
     private void lbNovoColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoColaboradorMouseClicked
         // TODO add your handling code here:
-        tela_lista_chamados.this.dispose();
+        tela_detalhe_chamado.this.dispose();
         tela_cadastro_usuario lbNovoColaborador = new tela_cadastro_usuario();
         lbNovoColaborador.setVisible(true);
     }//GEN-LAST:event_lbNovoColaboradorMouseClicked
 
     private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
         // TODO add your handling code here:
-        tela_lista_chamados.this.dispose();
-        tela_lista_chamados lbConsultar = new tela_lista_chamados();
+        tela_detalhe_chamado.this.dispose();
+        tela_detalhe_chamado lbConsultar = new tela_detalhe_chamado();
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        // TODO add your handling code here:
+        tela_detalhe_chamado.this.dispose();
+        tela_lista_chamados btnFechar = new tela_lista_chamados();
+        btnFechar.setVisible(true);
+    }//GEN-LAST:event_btnFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,34 +203,32 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tela_lista_chamados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_detalhe_chamado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tela_lista_chamados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_detalhe_chamado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tela_lista_chamados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_detalhe_chamado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tela_lista_chamados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tela_detalhe_chamado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tela_lista_chamados().setVisible(true);
+                new tela_detalhe_chamado().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnFechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbConsultar;
+    private javax.swing.JLabel lbNomeDetalheChamado;
     private javax.swing.JLabel lbNovoChamado;
     private javax.swing.JLabel lbNovoColaborador;
-    private javax.swing.JTable tbListaChamados;
-    private javax.swing.JTextField txtPesquisarChamado;
     // End of variables declaration//GEN-END:variables
 }

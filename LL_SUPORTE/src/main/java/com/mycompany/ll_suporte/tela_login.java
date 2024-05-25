@@ -60,11 +60,21 @@ public class tela_login extends javax.swing.JFrame {
 
         lbEsqueci.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbEsqueci.setText("Esqueci minha senha");
+        lbEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbEsqueciMouseClicked(evt);
+            }
+        });
 
         btnLogar.setBackground(new java.awt.Color(65, 82, 179));
         btnLogar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnLogar.setText("Entrar");
         btnLogar.setBorder(null);
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
         btnCadastrar.setBackground(new java.awt.Color(65, 82, 179));
         btnCadastrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -96,33 +106,33 @@ public class tela_login extends javax.swing.JFrame {
                             .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(138, 138, 138)
                         .addComponent(lbEsqueci))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
+                        .addGap(141, 141, 141)
                         .addComponent(lbTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(185, 185, 185)
                 .addComponent(lbTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(lb_nome_login)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbEsqueci)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -160,7 +170,24 @@ public class tela_login extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+        tela_login.this.dispose();
+        tela_cadastro_usuario btnCadastrar = new tela_cadastro_usuario();
+        btnCadastrar.setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void lbEsqueciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEsqueciMouseClicked
+        // TODO add your handling code here:
+        tela_login.this.dispose();
+        tela_recuperar_senha lbEsqueci = new tela_recuperar_senha();
+        lbEsqueci.setVisible(true);
+    }//GEN-LAST:event_lbEsqueciMouseClicked
+
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+        // TODO add your handling code here:
+        tela_login.this.dispose();
+        tela_lista_chamados btnLogar = new tela_lista_chamados();
+        btnLogar.setVisible(true);
+    }//GEN-LAST:event_btnLogarActionPerformed
 
     /**
      * @param args the command line arguments

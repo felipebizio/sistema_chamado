@@ -4,6 +4,8 @@
  */
 package com.mycompany.ll_suporte;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author felip
@@ -63,11 +65,21 @@ public class tela_redefinir_senha extends javax.swing.JFrame {
         btnVoltar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.setBorder(null);
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(65, 82, 179));
         btnAlterar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setBorder(null);
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,6 +155,21 @@ public class tela_redefinir_senha extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        tela_redefinir_senha.this.dispose();
+        tela_recuperar_senha btnVoltar = new tela_recuperar_senha();
+        btnVoltar.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        tela_redefinir_senha.this.dispose();
+        tela_login btnAlterar = new tela_login();
+        btnAlterar.setVisible(true);
+        JOptionPane.showMessageDialog(null,"Senha Alterada com sucesso!");
+    }//GEN-LAST:event_btnAlterarActionPerformed
 
     /**
      * @param args the command line arguments

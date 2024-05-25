@@ -87,10 +87,20 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(65, 82, 179));
         btnCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnConfirmar.setBackground(new java.awt.Color(65, 82, 179));
         btnConfirmar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         lbNomeNovoChamado.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbNomeNovoChamado.setText("NOVO CHAMADO");
@@ -179,12 +189,27 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbNovoChamado.setText("NOVO CHAMADO");
+        lbNovoChamado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNovoChamadoMouseClicked(evt);
+            }
+        });
 
         lbNovoColaborador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbNovoColaborador.setText("NOVO COLABORADOR");
+        lbNovoColaborador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNovoColaboradorMouseClicked(evt);
+            }
+        });
 
         lbConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbConsultar.setText("CONSULTAR");
+        lbConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbConsultarMouseClicked(evt);
+            }
+        });
 
         lbRelatorios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbRelatorios.setText("RELATÓRIOS");
@@ -213,9 +238,12 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lbNovoColaborador)
                         .addGap(18, 18, 18)
-                        .addComponent(lbConsultar))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(lbConsultar)
+                        .addContainerGap(305, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,20 +269,53 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 43, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbNovoChamadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoChamadoMouseClicked
+        // TODO add your handling code here:
+        tela_abertura_chamados.this.dispose();
+        tela_abertura_chamados lbNovoChamado = new tela_abertura_chamados();
+        lbNovoChamado.setVisible(true);
+    }//GEN-LAST:event_lbNovoChamadoMouseClicked
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // TODO add your handling code here:
+        tela_abertura_chamados.this.dispose();
+        tela_detalhe_chamado btnConfirmar = new tela_detalhe_chamado();
+        btnConfirmar.setVisible(true);
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        tela_abertura_chamados.this.dispose();
+        tela_lista_chamados btnCancelar = new tela_lista_chamados();
+        btnCancelar.setVisible(true);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void lbNovoColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoColaboradorMouseClicked
+        // TODO add your handling code here:
+        tela_abertura_chamados.this.dispose();
+        tela_cadastro_usuario lbNovoColaborador = new tela_cadastro_usuario();
+        lbNovoColaborador.setVisible(true);
+    }//GEN-LAST:event_lbNovoColaboradorMouseClicked
+
+    private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
+        // TODO add your handling code here:
+        tela_abertura_chamados.this.dispose();
+        tela_detalhe_chamado lbConsultar = new tela_detalhe_chamado();
+        lbConsultar.setVisible(true);
+    }//GEN-LAST:event_lbConsultarMouseClicked
 
     /**
      * @param args the command line arguments

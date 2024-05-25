@@ -59,11 +59,21 @@ public class tela_recuperar_senha extends javax.swing.JFrame {
         btnVoltar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.setBorder(null);
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         btnCriar.setBackground(new java.awt.Color(123, 150, 212));
         btnCriar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnCriar.setText("Criar");
+        btnCriar.setText("Confirmar");
         btnCriar.setBorder(null);
+        btnCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -134,6 +144,20 @@ public class tela_recuperar_senha extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        tela_recuperar_senha.this.dispose();
+        tela_login btnVoltar = new tela_login();
+        btnVoltar.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
+        // TODO add your handling code here:
+        tela_recuperar_senha.this.dispose();
+        tela_redefinir_senha btnCriar = new tela_redefinir_senha();
+        btnCriar.setVisible(true);
+    }//GEN-LAST:event_btnCriarActionPerformed
 
     /**
      * @param args the command line arguments
