@@ -159,7 +159,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
         // TODO add your handling code here:
         tela_cadastro_usuario.this.dispose();
-        tela_menu_rapido btnCriar = new tela_menu_rapido();
+        tela_abertura_chamados btnCriar = new tela_abertura_chamados();
         btnCriar.setVisible(true);
         JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
     }//GEN-LAST:event_btnCriarActionPerformed

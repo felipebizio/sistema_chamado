@@ -179,7 +179,7 @@ public class tela_menu_rapido extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
         tela_menu_rapido.this.dispose();
-        tela_detalhe_chamado btnConsultar = new tela_detalhe_chamado();
+        tela_lista_chamados btnConsultar = new tela_lista_chamados();
         btnConsultar.setVisible(true);
     }//GEN-LAST:event_btnConsultarActionPerformed
 
