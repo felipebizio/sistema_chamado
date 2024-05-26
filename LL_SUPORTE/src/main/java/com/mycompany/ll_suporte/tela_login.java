@@ -171,7 +171,7 @@ public class tela_login extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         tela_login.this.dispose();
-        tela_cadastro_usuario btnCadastrar = new tela_cadastro_usuario();
+        tela_cadastro_colaborador btnCadastrar = new tela_cadastro_colaborador();
         btnCadastrar.setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -185,7 +185,7 @@ public class tela_login extends javax.swing.JFrame {
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
         // TODO add your handling code here:
         tela_login.this.dispose();
-        tela_lista_chamados btnLogar = new tela_lista_chamados();
+        tela_menu_rapido btnLogar = new tela_menu_rapido();
         btnLogar.setVisible(true);
     }//GEN-LAST:event_btnLogarActionPerformed
 

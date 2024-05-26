@@ -36,6 +36,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         lbNovoChamado = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
+        lbNovoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +123,14 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             }
         });
 
+        lbNovoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbNovoUsuario.setText("NOVO USUARIO");
+        lbNovoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNovoUsuarioMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,7 +140,9 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 .addComponent(lbNovoChamado)
                 .addGap(18, 18, 18)
                 .addComponent(lbNovoColaborador)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbNovoUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbConsultar)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -145,7 +156,8 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNovoChamado)
                     .addComponent(lbNovoColaborador)
-                    .addComponent(lbConsultar))
+                    .addComponent(lbConsultar)
+                    .addComponent(lbNovoUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -177,7 +189,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private void lbNovoColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoColaboradorMouseClicked
         // TODO add your handling code here:
         tela_lista_chamados.this.dispose();
-        tela_cadastro_usuario lbNovoColaborador = new tela_cadastro_usuario();
+        tela_cadastro_colaborador lbNovoColaborador = new tela_cadastro_colaborador();
         lbNovoColaborador.setVisible(true);
     }//GEN-LAST:event_lbNovoColaboradorMouseClicked
 
@@ -187,6 +199,13 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         tela_lista_chamados lbConsultar = new tela_lista_chamados();
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
+
+    private void lbNovoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoUsuarioMouseClicked
+        // TODO add your handling code here:
+        tela_lista_chamados.this.dispose();
+        tela_cadastro_usuario lbNovoUsuario = new tela_cadastro_usuario();
+        lbNovoUsuario.setVisible(true);
+    }//GEN-LAST:event_lbNovoUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -232,6 +251,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbConsultar;
     private javax.swing.JLabel lbNovoChamado;
     private javax.swing.JLabel lbNovoColaborador;
+    private javax.swing.JLabel lbNovoUsuario;
     private javax.swing.JTable tbListaChamados;
     private javax.swing.JTextField txtPesquisarChamado;
     // End of variables declaration//GEN-END:variables
