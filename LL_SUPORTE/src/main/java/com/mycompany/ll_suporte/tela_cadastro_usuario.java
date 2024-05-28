@@ -98,6 +98,14 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbNomeNomeCompleto)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
+                                .addGap(8, 8, 8)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbNomeCPF)
@@ -116,6 +124,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                         .addGap(265, 265, 265)
                         .addComponent(lbCadastroUsuario)))
                 .addGap(179, 179, 179))
+>>>>>>> f17e3c496ac5075808073aaf68e2aa64a40c6947
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
