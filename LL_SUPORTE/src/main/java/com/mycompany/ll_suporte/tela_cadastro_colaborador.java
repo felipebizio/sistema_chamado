@@ -39,7 +39,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         lbNomeTelefone = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         btCriar = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         lbLogo = new javax.swing.JLabel();
         lbNomeSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
@@ -90,13 +90,13 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
             }
         });
 
-        btCancelar.setBackground(new java.awt.Color(65, 82, 179));
-        btCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btCancelar.setText("Cancelar");
-        btCancelar.setBorder(null);
-        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(65, 82, 179));
+        btnCancelar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     .addComponent(lbNomeSenha)
                     .addComponent(txtSenha)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -179,7 +179,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
@@ -213,12 +213,12 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         tela_cadastro_colaborador.this.dispose();
         tela_login btnCancelar = new tela_login();
         btnCancelar.setVisible(true);
-    }//GEN-LAST:event_btCancelarActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
         // TODO add your handling code here:
@@ -267,8 +267,8 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btCriar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbCadastroColaborador;

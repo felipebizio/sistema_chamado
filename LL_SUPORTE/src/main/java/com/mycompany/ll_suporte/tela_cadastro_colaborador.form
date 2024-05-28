@@ -69,7 +69,7 @@
                       <Component id="lbNomeSenha" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="btCancelar" min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btCriar" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
@@ -121,7 +121,7 @@
                           <Component id="txtTelefone" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btCancelar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnCancelar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="btCriar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -210,7 +210,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCriarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btCancelar">
+        <Component class="javax.swing.JButton" name="btnCancelar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b3" green="52" red="41" type="rgb"/>
@@ -224,7 +224,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCancelarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbLogo">

@@ -34,10 +34,10 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         txtPesquisarChamado = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         lbNovoChamado = new javax.swing.JLabel();
-        lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
         lbNovoUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lbNovoColaborador = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,12 +75,13 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 .addComponent(btnPesquisar)
                 .addGap(79, 79, 79))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(166, 166, 166)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -109,14 +110,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             }
         });
 
-        lbNovoColaborador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbNovoColaborador.setText("NOVO COLABORADOR");
-        lbNovoColaborador.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbNovoColaboradorMouseClicked(evt);
-            }
-        });
-
         lbConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbConsultar.setText("CONSULTAR");
         lbConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,6 +128,14 @@ public class tela_lista_chamados extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Pictures\\ll suporte canto tela.png")); // NOI18N
 
+        lbNovoColaborador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbNovoColaborador.setText("NOVO COLABORADOR");
+        lbNovoColaborador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNovoColaboradorMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -142,21 +143,17 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 8, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(lbNovoChamado)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbNovoColaborador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbNovoUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbConsultar)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(lbConsultar)
+                    .addComponent(lbNovoUsuario)
+                    .addComponent(lbNovoChamado)
+                    .addComponent(lbNovoColaborador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,15 +161,17 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addGap(96, 96, 96)
+                        .addComponent(lbNovoChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbNovoUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbNovoColaborador)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbConsultar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbNovoChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbNovoColaborador)
-                            .addComponent(lbNovoUsuario)
-                            .addComponent(lbConsultar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(58, 58, 58)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
