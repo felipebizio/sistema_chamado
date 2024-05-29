@@ -77,11 +77,7 @@
                           <Component id="lbCadastroUsuario" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-<<<<<<< HEAD
-                  <EmptySpace max="32767" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
->>>>>>> f17e3c496ac5075808073aaf68e2aa64a40c6947
               </Group>
           </Group>
         </DimensionLayout>
