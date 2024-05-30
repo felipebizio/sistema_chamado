@@ -40,8 +40,6 @@ public class tela_menu_rapido extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(123, 150, 212));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Pictures\\ll suporte menu.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

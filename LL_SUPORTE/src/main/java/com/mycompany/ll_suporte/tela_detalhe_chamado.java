@@ -55,8 +55,8 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
         lbNovoUsuario = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbNomeRelatorio = new javax.swing.JLabel();
+        lbListaDeColaboradores = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -65,7 +65,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbNomeSair = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,14 +165,12 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnFechar)
-                .addGap(88, 88, 88))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnFechar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,10 +206,10 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(lbNomeDescricao)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFechar)
-                .addGap(15, 15, 15))
+                .addGap(56, 56, 56))
         );
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -246,11 +244,16 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel1.setText("RELATÓRIOS");
+        lbNomeRelatorio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbNomeRelatorio.setText("RELATÓRIOS");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("CONFIGURAÇÕES");
+        lbListaDeColaboradores.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbListaDeColaboradores.setText("LISTA DE COLABORADORES");
+        lbListaDeColaboradores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbListaDeColaboradoresMouseClicked(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -266,8 +269,13 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel4.setText("SAIR");
+        lbNomeSair.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbNomeSair.setText("SAIR");
+        lbNomeSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNomeSairMouseClicked(evt);
+            }
+        });
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -286,7 +294,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                                         .addComponent(jSeparator4)
                                         .addComponent(jSeparator1)
                                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 2, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,34 +302,34 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                                     .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbNovoColaborador)
-                        .addGap(34, 34, 34))
+                        .addComponent(lbListaDeColaboradores)
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(jLabel3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(lbNovoUsuario))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(lbNovoChamado))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
+                                .addGap(37, 37, 37)
                                 .addComponent(lbConsultar))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jLabel2))
+                                .addGap(37, 37, 37)
+                                .addComponent(lbNomeRelatorio))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel1))
+                                .addGap(38, 38, 38)
+                                .addComponent(lbNovoColaborador))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jLabel4)))
+                                .addGap(41, 41, 41)
+                                .addComponent(lbNovoUsuario))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(lbNovoChamado))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(lbNomeSair)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -331,22 +339,22 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel3)
-                .addGap(73, 73, 73)
+                .addGap(88, 88, 88)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbNovoChamado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(lbNovoUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbNovoColaborador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(lbNomeRelatorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -354,14 +362,14 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(lbListaDeColaboradores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(lbNomeSair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -422,6 +430,25 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         lbNovoUsuario.setVisible(true);
     }//GEN-LAST:event_lbNovoUsuarioMouseClicked
 
+    private void lbNomeSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNomeSairMouseClicked
+        tela_detalhe_chamado.this.dispose();
+        tela_menu_rapido lbNomeSair = new tela_menu_rapido();
+        lbNomeSair.setVisible(true);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbNomeSairMouseClicked
+
+    private void lbListaDeColaboradoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbListaDeColaboradoresMouseClicked
+        // TODO add your handling code here:
+        // tela_detalhe_chamado.this.dispose();
+        //tela_lista_colaboradores lbListaDeColaboradores = new tela_lista_colaboradores();
+      //  lbListaDeColaboradores.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_lbListaDeColaboradoresMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -459,10 +486,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFechar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -476,13 +500,16 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lbConsultar;
     private javax.swing.JLabel lbGrupoAssunto;
+    private javax.swing.JLabel lbListaDeColaboradores;
     private javax.swing.JLabel lbNomeAbertura;
     private javax.swing.JLabel lbNomeDescricao;
     private javax.swing.JLabel lbNomeDetalheChamado;
     private javax.swing.JLabel lbNomeNumero;
     private javax.swing.JLabel lbNomePrazo;
     private javax.swing.JLabel lbNomePrioridade;
+    private javax.swing.JLabel lbNomeRelatorio;
     private javax.swing.JLabel lbNomeResponsavel;
+    private javax.swing.JLabel lbNomeSair;
     private javax.swing.JLabel lbNomeStatus;
     private javax.swing.JLabel lbNomeTitulo;
     private javax.swing.JLabel lbNomeUsuario;
