@@ -75,12 +75,17 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 .addComponent(btnPesquisar)
                 .addGap(79, 79, 79))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(202, 202, 202)
                         .addComponent(jLabel1))
+<<<<<<< Updated upstream
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> Stashed changes
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -95,9 +100,9 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPesquisarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addGap(90, 90, 90))
         );
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -196,8 +201,8 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private void lbNovoColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoColaboradorMouseClicked
         // TODO add your handling code here:
         tela_lista_chamados.this.dispose();
-        tela_cadastro_colaborador lbNovoColaborador = new tela_cadastro_colaborador();
-        lbNovoColaborador.setVisible(true);
+        tela_cadastro_colaborador teste = new tela_cadastro_colaborador();
+        teste.setVisible(true);
     }//GEN-LAST:event_lbNovoColaboradorMouseClicked
 
     private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
