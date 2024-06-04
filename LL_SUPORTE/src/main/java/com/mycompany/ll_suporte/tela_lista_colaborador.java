@@ -74,7 +74,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Title 3"
+                "Nome", "CPF", "Cargo"
             }
         ));
         spnTabelaColaborador.setViewportView(tblTabelaColaborador);
