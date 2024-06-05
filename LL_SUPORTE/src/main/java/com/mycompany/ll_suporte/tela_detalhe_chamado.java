@@ -92,7 +92,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         lbNomeUsuario.setText("Nome Usuário:");
 
         lbGrupoAssunto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbGrupoAssunto.setText("Grupo do Assunto:");
+        lbGrupoAssunto.setText("Grupo:");
 
         lbNomeTitulo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeTitulo.setText("Título:");
@@ -127,6 +127,11 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         cbGrupoAssunto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cbGrupoAssunto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HARDWARE", "SERVIÇOS DE TI", "REDES", "SOFTWARE", "ACESSO" }));
+        cbGrupoAssunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGrupoAssuntoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -469,6 +474,10 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         tela_relatorio lbNomeRelatorio = new tela_relatorio();
         lbNomeRelatorio.setVisible(true);
     }//GEN-LAST:event_lbNomeRelatorioMouseClicked
+
+    private void cbGrupoAssuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGrupoAssuntoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbGrupoAssuntoActionPerformed
 
     /**
      * @param args the command line arguments

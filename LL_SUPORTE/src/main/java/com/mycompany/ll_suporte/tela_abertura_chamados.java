@@ -32,10 +32,9 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbNomeUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lbNomeGrupo = new javax.swing.JLabel();
-        txtGrupo = new javax.swing.JTextField();
         lbTitulo = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
-        lbNomeCategoria = new javax.swing.JLabel();
+        lbNomeStatus = new javax.swing.JLabel();
         lbPrazo = new javax.swing.JLabel();
         lbPrioridade = new javax.swing.JLabel();
         txtPrioridade = new javax.swing.JTextField();
@@ -46,8 +45,9 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
         lbNomeNovoChamado = new javax.swing.JLabel();
         btnCriarUsuario = new javax.swing.JButton();
-        cbCategoria = new javax.swing.JComboBox<>();
+        cbStatus = new javax.swing.JComboBox<>();
         cbPrioridade = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         lbNovoChamado = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
@@ -83,8 +83,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbTitulo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbTitulo.setText("Título:");
 
-        lbNomeCategoria.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbNomeCategoria.setText("Categoria:");
+        lbNomeStatus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbNomeStatus.setText("Status:");
 
         lbPrazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbPrazo.setText("Prazo:");
@@ -129,12 +129,20 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             }
         });
 
-        cbCategoria.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Novo", "Em análise", "Em andamento", "Resolvido", "Encerrado", "Cancelado" }));
-        cbCategoria.setBorder(null);
+        cbStatus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Novo", "Em análise", "Em andamento", "Resolvido", "Encerrado", "Cancelado" }));
+        cbStatus.setBorder(null);
+        cbStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbStatusActionPerformed(evt);
+            }
+        });
 
         cbPrioridade.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cbPrioridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baixo", "Médio", "Alto" }));
+
+        jComboBox1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HARDWARE", "SERVIÇOS DE TI", "REDES", "SOFTWARE", "ACESSO" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,10 +159,13 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbTitulo)
                             .addComponent(lbNomeGrupo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGrupo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(lbDescricao)))
@@ -162,13 +173,13 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 .addComponent(btnCriarUsuario)
                 .addGap(18, 36, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNomeCategoria)
+                    .addComponent(lbNomeStatus)
                     .addComponent(lbPrazo)
                     .addComponent(lbPrioridade))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPrioridade, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                    .addComponent(cbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbPrioridade, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(162, 162, 162))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -199,13 +210,15 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                     .addComponent(lbNomeUsuario)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCriarUsuario)
-                    .addComponent(lbNomeCategoria)
-                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbNomeStatus)
+                    .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbNomeGrupo)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbNomeGrupo)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbPrazo))
                         .addGap(18, 18, 18)
@@ -213,8 +226,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                             .addComponent(lbPrioridade)
                             .addComponent(cbPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbTitulo))))
@@ -497,6 +509,10 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbNomeListaColaboradores.setVisible(true);
     }//GEN-LAST:event_lbNomeListaColaboradorMouseClicked
 
+    private void cbStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbStatusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -536,8 +552,9 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnCriarUsuario;
-    private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbPrioridade;
+    private javax.swing.JComboBox<String> cbStatus;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -557,10 +574,10 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbDescricao;
     private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbMenu;
-    private javax.swing.JLabel lbNomeCategoria;
     private javax.swing.JLabel lbNomeGrupo;
     private javax.swing.JLabel lbNomeListaColaborador;
     private javax.swing.JLabel lbNomeNovoChamado;
+    private javax.swing.JLabel lbNomeStatus;
     private javax.swing.JLabel lbNomeUsuario;
     private javax.swing.JLabel lbNovoChamado;
     private javax.swing.JLabel lbNovoColaborador;
@@ -570,7 +587,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbRelatorios;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JTextArea txtDescricao;
-    private javax.swing.JTextField txtGrupo;
     private javax.swing.JTextField txtPrioridade;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtUsuario;
