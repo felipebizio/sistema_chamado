@@ -284,6 +284,8 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo canto de tela.png")); // NOI18N
+
         lbNomeMenu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeMenu.setText("MENU");
         lbNomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -354,12 +356,12 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
-                                .addComponent(lbLogo)))
-                        .addGap(29, 29, 29)
+                                .addComponent(lbLogo))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel3)))
+                        .addGap(22, 22, 22)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbNovoChamado)
