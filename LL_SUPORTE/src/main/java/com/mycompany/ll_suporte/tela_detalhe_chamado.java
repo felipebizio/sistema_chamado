@@ -117,6 +117,12 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         lbNomePrioridade.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomePrioridade.setText("Prioridade:");
 
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+
         lbNomeDescricao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeDescricao.setText("Descrição:");
 
@@ -251,10 +257,11 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFechar)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnEditar))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditar)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnFechar)
+                        .addComponent(btnSalvar)))
                 .addGap(13, 13, 13))
         );
 
@@ -514,6 +521,27 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private void cbGrupoAssuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGrupoAssuntoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbGrupoAssuntoActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
     /**
      * @param args the command line arguments
