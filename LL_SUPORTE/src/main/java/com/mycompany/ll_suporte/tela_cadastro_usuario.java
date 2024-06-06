@@ -4,6 +4,12 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +21,17 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     /**
      * Creates new form tela_cadastro_usuario
      */
+    Connection conexao = null;
+    PreparedStatement statement = null;
+    
+    
+    String url = "jdbc:mysql://localhost/ll_suporte";
+    String usuario = "root";
+    String senha = "154869";
+            
+    
+    
+    
     public tela_cadastro_usuario() {
         initComponents();
     }
@@ -31,7 +48,6 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbCadastroUsuario = new javax.swing.JLabel();
         lbNomeNomeCompleto = new javax.swing.JLabel();
-        txtNomeCompleto = new javax.swing.JTextField();
         lbNomeCPF = new javax.swing.JLabel();
         txtCPF = new javax.swing.JTextField();
         lbEnderecoEmail = new javax.swing.JLabel();
@@ -42,6 +58,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
         btnCriar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbLogo = new javax.swing.JLabel();
+        txtNomeCompleto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,8 +69,6 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
 
         lbNomeNomeCompleto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeNomeCompleto.setText("Nome Completo");
-
-        txtNomeCompleto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         lbNomeCPF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeCPF.setText("CPF");
@@ -99,21 +114,20 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                         .addComponent(lbCadastroUsuario))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(167, 167, 167)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbNomeTelefone)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(44, 44, 44)
-                                    .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(lbEnderecoEmail)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addComponent(lbNomeCPF)
-                            .addComponent(txtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbNomeNomeCompleto))
+                            .addComponent(lbNomeNomeCompleto)
+                            .addComponent(txtNomeCompleto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                         .addComponent(lbLogo)
                         .addGap(68, 68, 68)
@@ -136,7 +150,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                                 .addComponent(lbNomeNomeCompleto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGap(4, 4, 4)))
                         .addComponent(lbNomeCPF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,11 +195,47 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
-        // TODO add your handling code here:
-        tela_cadastro_usuario.this.dispose();
-        tela_abertura_chamados btnCriar = new tela_abertura_chamados();
-        btnCriar.setVisible(true);
-        JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+            
+            try {
+            // TODO add your handling code here:
+            
+            conexao = DriverManager.getConnection(url, usuario, senha);
+            
+            
+            
+            String sql = "INSERT INTO clientes (nome_completo_cliente, cpf_cliente, email_cliente, tel_cliente) VALUES (?,?,?,?)";
+            
+            
+           String cpf = txtCPF.getText();
+            if (!cpf.matches("\\d*")){ // Verifica se o texto contém apenas letras
+                JOptionPane.showMessageDialog(null,"Por favor, insira apenas número.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
+                txtCPF.requestFocus(); // Requer foco novamente se a entrada for inválida
+            }
+            
+            String telefone = txtTelefone.getText();
+            if (!telefone.matches("\\d*")){ // Verifica se o texto contém apenas letras
+                JOptionPane.showMessageDialog(null,"Por favor, insira apenas número.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
+                txtTelefone.requestFocus(); // Requer foco novamente se a entrada for inválida
+            }
+            
+            statement = conexao.prepareStatement(sql);
+            statement.setString(1, txtNomeCompleto.getText());
+            statement.setString(2, cpf);
+            statement.setString(3, txtEmail.getText());
+            statement.setString(4, telefone);
+            
+            
+            statement.execute();
+            statement.close();
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+            
+            
+            tela_cadastro_usuario.this.dispose();
+            tela_abertura_chamados btnCriar = new tela_abertura_chamados();
+            btnCriar.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_cadastro_usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCriarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

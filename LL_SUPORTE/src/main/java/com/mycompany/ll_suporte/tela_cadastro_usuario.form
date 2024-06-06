@@ -59,23 +59,21 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lbNomeTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Component id="btnCancelar" min="-2" pref="68" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Component id="btnCriar" min="-2" pref="70" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtTelefone" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Component id="btnCancelar" min="-2" pref="68" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="btnCriar" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtEmail" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtTelefone" alignment="0" pref="200" max="32767" attributes="0"/>
+                              <Component id="txtEmail" alignment="0" pref="200" max="32767" attributes="0"/>
                               <Component id="lbEnderecoEmail" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCPF" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtCPF" pref="200" max="32767" attributes="0"/>
                               <Component id="lbNomeCPF" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNomeCompleto" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="lbNomeNomeCompleto" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNomeCompleto" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="123" max="32767" attributes="0"/>
                           <Component id="lbLogo" min="-2" max="-2" attributes="0"/>
@@ -104,7 +102,7 @@
                                   <Component id="lbNomeNomeCompleto" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtNomeCompleto" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="lbNomeCPF" min="-2" max="-2" attributes="0"/>
@@ -150,13 +148,6 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nome Completo"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNomeCompleto">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbNomeCPF">
@@ -236,6 +227,8 @@
               <Image iconType="2" name="C:\Users\felip\Desktop\TRABALHO_TEC_NIGTH\icones_tec_nigth\logo menu menor.png"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNomeCompleto">
         </Component>
       </SubComponents>
     </Container>
