@@ -37,7 +37,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbNomeStatus = new javax.swing.JLabel();
         lbPrazo = new javax.swing.JLabel();
         lbPrioridade = new javax.swing.JLabel();
-        txtPrioridade = new javax.swing.JTextField();
+        txtPrazo = new javax.swing.JTextField();
         lbDescricao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
@@ -178,7 +178,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                     .addComponent(lbPrioridade))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPrioridade, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(txtPrazo, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbPrioridade, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(162, 162, 162))
@@ -219,7 +219,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lbNomeGrupo)
                                 .addComponent(cbGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbPrazo))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,7 +585,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbRelatorios;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JTextArea txtDescricao;
-    private javax.swing.JTextField txtPrioridade;
+    private javax.swing.JTextField txtPrazo;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

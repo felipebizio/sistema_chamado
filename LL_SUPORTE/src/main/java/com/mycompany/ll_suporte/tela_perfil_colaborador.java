@@ -51,7 +51,6 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         lbAnotacoes = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnCriarChamado = new javax.swing.JButton();
         lbLogo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbNomeNovoChado = new javax.swing.JLabel();
@@ -128,15 +127,6 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
 
-        btnCriarChamado.setBackground(new java.awt.Color(123, 150, 212));
-        btnCriarChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnCriarChamado.setText("CRIAR NOVO CHAMADO");
-        btnCriarChamado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriarChamadoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -181,12 +171,8 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
                                     .addComponent(txtTitulo)
                                     .addComponent(txtCPF)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(226, 226, 226)
-                                        .addComponent(btnCriarChamado)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 286, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 53, Short.MAX_VALUE)
                         .addComponent(txtAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -201,11 +187,9 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnCriarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNomeUsuario)
@@ -243,8 +227,6 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
-
-        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo canto de tela.png")); // NOI18N
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -452,14 +434,6 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         lbNomeListaDeColaboradores.setVisible(true);
     }//GEN-LAST:event_lbNomeListaColaboradoresMouseClicked
 
-    private void btnCriarChamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarChamadoActionPerformed
-        // TODO add your handling code here:
-        tela_perfil_colaborador.this.dispose();
-        tela_abertura_chamados lbNovoChamado = new tela_abertura_chamados();
-        lbNovoChamado.setVisible(true);
-        
-    }//GEN-LAST:event_btnCriarChamadoActionPerformed
-
     private void lbNomeNovoChadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNomeNovoChadoMouseClicked
         // TODO add your handling code here:
         tela_perfil_colaborador.this.dispose();
@@ -531,7 +505,6 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCriarChamado;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnFechar;
     private javax.swing.JLabel jLabel1;
