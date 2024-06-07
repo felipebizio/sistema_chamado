@@ -253,7 +253,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="lbNomeDetalheChamado" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbNomeNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbNomeResponsavel" alignment="3" min="-2" max="-2" attributes="0"/>
