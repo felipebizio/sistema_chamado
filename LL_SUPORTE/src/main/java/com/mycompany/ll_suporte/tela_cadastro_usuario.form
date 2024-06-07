@@ -222,11 +222,6 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
         </Component>
         <Component class="javax.swing.JLabel" name="lbLogo">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\felip\Desktop\TRABALHO_TEC_NIGTH\icones_tec_nigth\logo menu menor.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeCompleto">
         </Component>

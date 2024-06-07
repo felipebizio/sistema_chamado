@@ -25,9 +25,9 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     PreparedStatement statement = null;
     
     
-    String url = "jdbc:mysql://localhost/ll_suporte";
+    String url = "jdbc:mysql://localhost/ll_suportee";
     String usuario = "root";
-    String senha = "154869";
+    String senha = ""; // 154869
             
     
     
@@ -195,47 +195,37 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
-            
-            try {
-            // TODO add your handling code here:
-            
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            
-            
-            
-            String sql = "INSERT INTO clientes (nome_completo_cliente, cpf_cliente, email_cliente, tel_cliente) VALUES (?,?,?,?)";
-            
-            
            String cpf = txtCPF.getText();
-            if (!cpf.matches("\\d*")){ // Verifica se o texto contém apenas letras
-                JOptionPane.showMessageDialog(null,"Por favor, insira apenas número.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
-                txtCPF.requestFocus(); // Requer foco novamente se a entrada for inválida
-            }
-            
-            String telefone = txtTelefone.getText();
-            if (!telefone.matches("\\d*")){ // Verifica se o texto contém apenas letras
-                JOptionPane.showMessageDialog(null,"Por favor, insira apenas número.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
-                txtTelefone.requestFocus(); // Requer foco novamente se a entrada for inválida
-            }
-            
-            statement = conexao.prepareStatement(sql);
-            statement.setString(1, txtNomeCompleto.getText());
-            statement.setString(2, cpf);
-            statement.setString(3, txtEmail.getText());
-            statement.setString(4, telefone);
-            
-            
-            statement.execute();
-            statement.close();
-            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
-            
-            
-            tela_cadastro_usuario.this.dispose();
-            tela_abertura_chamados btnCriar = new tela_abertura_chamados();
-            btnCriar.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(tela_cadastro_usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           String telefone = txtTelefone.getText();
+           
+           if (!cpf.matches("\\d+") || !telefone.matches("\\d+")) { // Verifica se o texto contém apenas letras
+               //JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campos CPF ou Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
+               if (!telefone.matches("\\d*")){
+                   JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
+                   txtTelefone.requestFocus();
+               } else {
+                   JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo CPF.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
+                   txtCPF.requestFocus(); // Requer foco novamente se a entrada for inválida
+               } 
+            } else {
+                try {
+                    conexao = DriverManager.getConnection(url, usuario, senha);
+                    String sql = "INSERT INTO clientes (nome_completo_cliente, cpf_cliente, email_cliente, tel_cliente) VALUES (?,?,?,?)";
+                    statement = conexao.prepareStatement(sql);
+                    statement.setString(1, txtNomeCompleto.getText());
+                    statement.setString(2, cpf);
+                    statement.setString(3, txtEmail.getText());
+                    statement.setString(4, telefone);
+                    statement.execute();
+                    statement.close();
+                    JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+                    tela_cadastro_usuario.this.dispose();
+                    tela_abertura_chamados btnCriar = new tela_abertura_chamados();
+                    btnCriar.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(tela_cadastro_usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           }
     }//GEN-LAST:event_btnCriarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
