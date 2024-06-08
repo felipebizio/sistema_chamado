@@ -4,6 +4,9 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,6 +72,12 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         lbNomeCpf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeCpf.setText("CPF");
 
+        txtCpfUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfUsuarioActionPerformed(evt);
+            }
+        });
+
         lbNomeEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeEmail.setText("Endereço de E-mail");
 
@@ -106,11 +115,14 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
 
         rbAtendente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbAtendente.setText("Atendente");
+        rbAtendente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAtendenteActionPerformed(evt);
+            }
+        });
 
         rbDesenvolvedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbDesenvolvedor.setText("Desenvolvedor");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo menu menor.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,12 +243,58 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
+
+
+
+
+
+
+
+
+
+
+  
+       //     Connection conexao = null;
+         //   PreparedStatement statement = null;
+            
+            
+           // String url = "jdbc:mysql://localhost:3306/";
+           // String usuario = "root";
+           // String senha = "";
+            
+        //    conexao = DriverManager.getConnection(url,usuario,senha);
+            
+          //  String sql = "INSERT INTO "TABELA"(?) VALUES (?)";
+           // statement = conexao.prepareStatement(sql);
+            
+            
+            
+         //   statement.setString(1,txtNomeUsuario.getText());
+         //   statement.setString(2,txtSenha.getText());
+         //   statement.setString(3,txtCpfUsuario.getText());
+         //   statement.setString(4,txtEmailUsuario.getText());
+         //   statement.setString(5,txtTelefone.getText());
+            
+           //statement.execute();
+           // JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+           // statement.close();
+           // this.PopularJTable("SELECT * FROM TABELA");
+
+
         // TODO add your handling code here:
         tela_cadastro_colaborador.this.dispose();
         tela_menu_rapido btnCriar = new tela_menu_rapido();
         btnCriar.setVisible(true);
         JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
     }//GEN-LAST:event_btCriarActionPerformed
+
+    private void txtCpfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfUsuarioActionPerformed
+
+    private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbAtendenteActionPerformed
 
     /**
      * @param args the command line arguments

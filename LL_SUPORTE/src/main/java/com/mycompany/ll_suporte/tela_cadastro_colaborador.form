@@ -182,6 +182,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCpfUsuario">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfUsuarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbNomeEmail">
           <Properties>
@@ -259,6 +262,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Atendente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbAtendenteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbDesenvolvedor">
           <Properties>
@@ -271,11 +277,6 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\felip\Desktop\TRABALHO_TEC_NIGTH\icones_tec_nigth\logo menu menor.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
