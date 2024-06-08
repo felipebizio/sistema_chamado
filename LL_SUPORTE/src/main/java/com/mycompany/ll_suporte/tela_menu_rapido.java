@@ -42,8 +42,6 @@ public class tela_menu_rapido extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(123, 150, 212));
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo menu.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -88,6 +86,16 @@ public class tela_menu_rapido extends javax.swing.JFrame {
         btnSair.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnSair.setText("SAIR");
         btnSair.setBorder(null);
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+        });
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         btnNovoColaborador.setBackground(new java.awt.Color(65, 82, 179));
         btnNovoColaborador.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -236,6 +244,16 @@ public class tela_menu_rapido extends javax.swing.JFrame {
         tela_lista_colaborador btnListaColaborador = new tela_lista_colaborador();
         btnListaColaborador.setVisible(true);
     }//GEN-LAST:event_btnListaColaboradorActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        tela_menu_rapido.this.dispose();
+        tela_login btnSair = new tela_login();
+        btnSair.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSairMouseClicked
 
     /**
      * @param args the command line arguments
