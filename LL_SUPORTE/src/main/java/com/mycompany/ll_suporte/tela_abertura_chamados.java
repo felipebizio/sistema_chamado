@@ -164,9 +164,20 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
 
         cbGrupo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cbGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HARDWARE", "SERVIÇOS DE TI", "REDES", "SOFTWARE", "ACESSO" }));
+        cbGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGrupoActionPerformed(evt);
+            }
+        });
 
         lbNomeCpf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeCpf.setText("CPF:");
+
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
 
         lbNomeDataAbertura.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeDataAbertura.setText("Data Abertura:");
@@ -210,13 +221,10 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbTitulo)
                             .addComponent(lbNomeGrupo))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(cbGrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(lbDescricao))
@@ -503,25 +511,34 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             try {
                 // TODO add your handling code here:
                 conexao = DriverManager.getConnection(url, usuario, senha);
-                String sql = "INSERT INTO chamado (titulo_chamado, prazo_chamado, descricao_chamado, data_abertura_chamado) VALUES (?,?,?,?)";
+                String sql = "INSERT INTO chamado (grupo_chamado, titulo_chamado, status_chamado, prazo_chamado, prioridade_chamado,"
+                        + " descricao_chamado, data_abertura_chamado) VALUES (?,?,?,?,?,?,?)";                      
                 String dia = txtDateAbertura.getText().substring(0,2);
                 String mes = txtDateAbertura.getText().substring(3,5);
                 String ano = txtDateAbertura.getText().substring(6);
                 String data = ano +"-"+mes+"-"+dia;
+                String grupo = (String) cbGrupo.getSelectedItem();
+                String status = (String) cbStatus.getSelectedItem();
+                String prioridade = (String) cbPrioridade.getSelectedItem();
                 statement = conexao.prepareStatement(sql);
-                statement.setString(1, txtTitulo.getText());
-                statement.setString(2, txtPrazo.getText());
-                statement.setString(3, txtDescricao.getText());
-                statement.setString(4, data);
+                statement.setString(1, grupo);
+                statement.setString(2, txtTitulo.getText());
+                statement.setString(3, status);
+                statement.setString(4, txtPrazo.getText());
+                statement.setString(5, prioridade);
+                statement.setString(6, txtDescricao.getText());
+                statement.setString(7, data);
                 statement.execute();
                 statement.close();
                 JOptionPane.showMessageDialog(null,"Chamado criado com sucesso!");
                 tela_abertura_chamados.this.dispose();
                 tela_detalhe_chamado btnConfirmar = new tela_detalhe_chamado();
                 btnConfirmar.setVisible(true);
+                //this.PopularJTable ("SELECT * from aluno");
+                    
             } catch (SQLException ex) {
                 Logger.getLogger(tela_abertura_chamados.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }        
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -602,6 +619,14 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHorarioAtual);
         txtDateAbertura.setText(data);
     }//GEN-LAST:event_txtDateAberturaAncestorAdded
+
+    private void cbGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGrupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbGrupoActionPerformed
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments

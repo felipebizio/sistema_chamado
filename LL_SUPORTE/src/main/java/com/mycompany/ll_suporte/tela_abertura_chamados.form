@@ -218,15 +218,10 @@
                                   <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbNomeGrupo" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="43" max="32767" attributes="0"/>
-                                      <Component id="txtTitulo" min="-2" pref="147" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Component id="cbGrupo" max="32767" attributes="0"/>
-                                  </Group>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="txtTitulo" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <Component id="cbGrupo" min="-2" pref="146" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -516,6 +511,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbGrupoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -529,6 +527,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCpf">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbNomeDataAbertura">
               <Properties>

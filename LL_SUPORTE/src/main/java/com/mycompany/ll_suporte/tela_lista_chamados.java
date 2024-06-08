@@ -4,18 +4,60 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author felip
  */
 public class tela_lista_chamados extends javax.swing.JFrame {
 
-    /**
-     * Creates new form tela_lista_chamados
-     */
+    Connection conexao = null;
+    PreparedStatement statement = null;
+    
+    
+    String url = "jdbc:mysql://localhost/ll_suporte";
+    String usuario = "root";
+    String senha = "154869"; // 154869
+    
+    
     public tela_lista_chamados() {
         initComponents();
+        
     }
+    
+    public void PopulartbListaChamados(String sql){
+        /*conexao = DriverManager.getConnection(url, usuario, senha);
+        statement = conexao.prepareStatement(sql);   
+        statement.execute();
+            ResultSet resultado = ll_suporte.executeQuery(sql);
+            DefaultTableModel model = (DefaultTableModel) tbListaChamados.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next()){
+                model.addRow(new Object[]{
+                    resultado.getString("status_chamado"),
+                    resultado.getString("id_chamado"),
+                    resultado.getString("data_abertura_chamado"),
+                    resultado.getString(""), // usuario
+                    resultado.getString("titulo_chamado"),
+                    resultado.getString("grupo_chamado"),
+                    resultado.getString("prioridade_chamado"),
+                    resultado.getString("prazo_chamado"),
+                    resultado.getString("")//responsavel
+                });
+            }
+             // id_fun
+            conexao.close();
+            statement.close();*/
+    }
+    
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +94,11 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         lbMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(123, 150, 212));
 
@@ -63,7 +110,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Status", "Chamado", "Abertura", "Funcionario", "Usuario", "Categoria", "Titulo", "Grupo", "Prioridade", "Prazo", "Responsavel"
+                "Status", "Chamado", "Abertura", "Usuario", "Titulo", "Grupo", "Prioridade", "Prazo", "Responsavel"
             }
         ));
         jScrollPane1.setViewportView(tbListaChamados);
@@ -386,6 +433,13 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         btnVoltar.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+        //this.PopulartbListaChamados ("SELECT * from chamado");
+
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -418,7 +472,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             public void run() {
                 new tela_lista_chamados().setVisible(true);
             }
-        });
+        }); 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
