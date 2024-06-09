@@ -532,7 +532,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 statement.close();
                 JOptionPane.showMessageDialog(null,"Chamado criado com sucesso!");
                 tela_abertura_chamados.this.dispose();
-                tela_detalhe_chamado btnConfirmar = new tela_detalhe_chamado();
+                tela_lista_chamados btnConfirmar = new tela_lista_chamados();
                 btnConfirmar.setVisible(true);
                 //this.PopularJTable ("SELECT * from aluno");
                     
@@ -558,7 +558,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
         // TODO add your handling code here:
         tela_abertura_chamados.this.dispose();
-        tela_detalhe_chamado lbConsultar = new tela_detalhe_chamado();
+        tela_lista_chamados lbConsultar = new tela_lista_chamados();
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
 

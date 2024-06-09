@@ -4,17 +4,59 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author felip
  */
 public class tela_lista_colaborador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form tela_lista_colaborador
-     */
+        Connection conexao = null;
+        PreparedStatement statement = null;
+
+
+        String url = "jdbc:mysql://localhost/ll_suporte";
+        String usuario = "root";
+        String senha = "154869"; // 154869
+        
+        
     public tela_lista_colaborador() {
         initComponents();
+    }
+    
+    
+    public void PopularListaColaborador (String sql){
+        
+            try {
+                conexao = DriverManager.getConnection(url, usuario, senha);
+                statement = conexao.prepareStatement(sql);
+                statement.execute();
+                ResultSet resultado = statement.executeQuery(sql);
+                DefaultTableModel model = (DefaultTableModel) tblTabelaColaborador.getModel();
+                model.setNumRows(0);
+                
+                while(resultado.next()){
+                    model.addRow(new Object[]{
+                        resultado.getString("nome_completo_funcionario"),
+                        resultado.getString("cpf_funcionario"), //****FORMATAR A DATA****
+                        resultado.getString("cargo"),
+                        resultado.getString("email_funcionario"),
+                        resultado.getString("telefone_funcionario")
+                    });
+                }
+                conexao.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(tela_lista_colaborador.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     /**
@@ -54,6 +96,11 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(123, 150, 212));
 
@@ -63,6 +110,11 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         btnPesquisar.setBackground(new java.awt.Color(123, 150, 212));
         btnPesquisar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnPesquisar.setText("PESQUISAR");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         txtPesquisarFuncionario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtPesquisarFuncionario.setForeground(new java.awt.Color(204, 204, 204));
@@ -74,7 +126,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Cargo"
+                "Nome", "CPF", "Cargo", "Email", "Telefone"
             }
         ));
         spnTabelaColaborador.setViewportView(tblTabelaColaborador);
@@ -369,6 +421,16 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         tela_menu_rapido lbMenu = new tela_menu_rapido();
         lbMenu.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+            
+        this.PopularListaColaborador ("SELECT * from funcionario");
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        this.PopularListaColaborador ("SELECT * from funcionario");
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

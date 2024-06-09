@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,29 +34,33 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     }
     
     public void PopulartbListaChamados(String sql){
-        /*conexao = DriverManager.getConnection(url, usuario, senha);
-        statement = conexao.prepareStatement(sql);   
-        statement.execute();
-            ResultSet resultado = ll_suporte.executeQuery(sql);
+        try {
+            conexao = DriverManager.getConnection(url, usuario, senha);
+            statement = conexao.prepareStatement(sql);
+            statement.execute();
+            ResultSet resultado = statement.executeQuery(sql);
             DefaultTableModel model = (DefaultTableModel) tbListaChamados.getModel();
             model.setNumRows(0);
             
             while(resultado.next()){
                 model.addRow(new Object[]{
                     resultado.getString("status_chamado"),
-                    resultado.getString("id_chamado"),
+                    resultado.getString("id_chamado"), //****FORMATAR A DATA****
                     resultado.getString("data_abertura_chamado"),
-                    resultado.getString(""), // usuario
+                    resultado.getString("cpf_clien"), // usuario
                     resultado.getString("titulo_chamado"),
                     resultado.getString("grupo_chamado"),
                     resultado.getString("prioridade_chamado"),
                     resultado.getString("prazo_chamado"),
-                    resultado.getString("")//responsavel
+                    resultado.getString("id_fun")//responsavel --> id_fun
                 });
             }
-             // id_fun
+            // id_fun
             conexao.close();
-            statement.close();*/
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_lista_chamados.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
@@ -436,7 +443,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        //this.PopulartbListaChamados ("SELECT * from chamado");
+        this.PopulartbListaChamados ("SELECT * from chamado");
 
     }//GEN-LAST:event_formWindowOpened
 
