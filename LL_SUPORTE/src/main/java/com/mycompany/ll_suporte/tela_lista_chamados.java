@@ -22,11 +22,11 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     Connection conexao = null;
     PreparedStatement statement = null;
     
-    
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
     String senha = "154869"; // 154869
     
+    public static String id;
     
     public tela_lista_chamados() {
         initComponents();
@@ -120,6 +120,11 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 "Status", "Chamado", "Abertura", "Usuario", "Titulo", "Grupo", "Prioridade", "Prazo", "Responsavel"
             }
         ));
+        tbListaChamados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbListaChamadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbListaChamados);
 
         txtPesquisarChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -446,6 +451,23 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         this.PopulartbListaChamados ("SELECT * from chamado");
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void tbListaChamadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbListaChamadosMouseClicked
+        // TODO add your handling code here:
+                                                    
+     
+            int linha = tbListaChamados.getSelectedRow();
+
+            id = tbListaChamados.getValueAt(linha, 0).toString();
+
+            tela_lista_chamados.this.dispose();
+            tela_detalhe_chamado objeto2 = new tela_detalhe_chamado();
+            objeto2.setVisible(true);
+        
+           
+        
+    
+    }//GEN-LAST:event_tbListaChamadosMouseClicked
 
     /**
      * @param args the command line arguments

@@ -4,19 +4,35 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author felip
  */
 public class tela_detalhe_chamado extends javax.swing.JFrame {
 
+    
+        Connection conexao = null;
+        PreparedStatement statement = null;
+
+
+        String url = "jdbc:mysql://localhost/ll_suporte";
+        String usuario = "root";
+        String senha = "154869"; // 154869
     /**
      * Creates new form tela_detalhe_chamado
      */
     public tela_detalhe_chamado() {
         initComponents();
     }
-
+    public void detalhes_chamado (){
+        
+           /* conexao = DriverManager.getConnection(url, usuario, senha);
+            statement = conexao.prepareStatement("SELECT * FROM "); */
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
