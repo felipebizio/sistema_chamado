@@ -24,7 +24,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = ""; // 154869
+    String senha = "154869"; // 154869
     
     public static String id;
     
@@ -46,7 +46,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                     resultado.getString("status_chamado"),
                     resultado.getString("id_chamado"), 
-                    resultado.getString("data_abertura_chamado"), //****FORMATAR A DATA****
+                    resultado.getString("data_formatada"), //****FORMATAR A DATA****
                     resultado.getString("cpf_clien"), // usuario
                     resultado.getString("titulo_chamado"),
                     resultado.getString("grupo_chamado"),
@@ -441,7 +441,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        this.PopulartbListaChamados ("SELECT * from chamado");
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada from chamado");
 
     }//GEN-LAST:event_formWindowOpened
 

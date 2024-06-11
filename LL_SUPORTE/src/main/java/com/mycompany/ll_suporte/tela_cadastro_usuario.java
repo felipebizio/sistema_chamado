@@ -27,7 +27,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = ""; // 154869
+    String senha = "154869"; // 154869
             
     
     

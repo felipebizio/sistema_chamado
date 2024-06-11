@@ -25,7 +25,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = ""; // 154869
+        String senha = "154869"; // 154869
         
         
     public tela_lista_colaborador() {
@@ -45,8 +45,9 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 
                 while(resultado.next()){
                     model.addRow(new Object[]{
+                        resultado.getString("id_funcionario"),
                         resultado.getString("nome_completo_funcionario"),
-                        resultado.getString("cpf_funcionario"), //****FORMATAR A DATA****
+                        resultado.getString("cpf_funcionario"),
                         resultado.getString("cargo"),
                         resultado.getString("email_funcionario"),
                         resultado.getString("telefone_funcionario")
@@ -126,7 +127,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Cargo", "Email", "Telefone"
+                "ID", "Nome", "CPF", "Cargo", "Email", "Telefone"
             }
         ));
         spnTabelaColaborador.setViewportView(tblTabelaColaborador);
@@ -191,8 +192,6 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
-
-        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo canto superior.png")); // NOI18N
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoChamado.setText("NOVO CHAMADO");
@@ -424,12 +423,13 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
             
-        this.PopularListaColaborador ("SELECT * from funcionario");
+        //this.PopularListaColaborador ("SELECT * from funcionario");
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        this.PopularListaColaborador ("SELECT * from funcionario");
+        this.PopularListaColaborador ("SELECT id_funcionario, nome_completo_funcionario, cpf_funcionario, cargo, email_funcionario,telefone_funcionario "
+                + " from funcionario ");
     }//GEN-LAST:event_formWindowOpened
 
     /**

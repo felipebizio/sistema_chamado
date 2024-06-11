@@ -27,7 +27,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = ""; // 154869
+    String senha = "154869"; // 154869
     /**
      * Creates new form tela_abertura_chamados
      */
@@ -71,6 +71,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbNomeDataAbertura = new javax.swing.JLabel();
         txtDateAbertura = new javax.swing.JTextField();
         lbIconNovoChamado = new javax.swing.JLabel();
+        lbNomeIdResponsavel = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
         lbNovoChamado = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
@@ -142,7 +144,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
 
         btnPesquisar.setBackground(new java.awt.Color(123, 150, 212));
         btnPesquisar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnPesquisar.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Downloads\\procurar.png")); // NOI18N
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -191,6 +192,9 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             }
         });
 
+        lbNomeIdResponsavel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbNomeIdResponsavel.setText("Id Responsável:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -227,16 +231,16 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                             .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lbDescricao))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbNomeUsuario)
                             .addComponent(lbNomeCpf))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtCpf))))
+                            .addComponent(txtCpf)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lbDescricao)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -244,13 +248,15 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                     .addComponent(lbPrazo)
                     .addComponent(lbPrioridade)
                     .addComponent(lbNomeDataAbertura)
-                    .addComponent(lbNomeStatus))
+                    .addComponent(lbNomeStatus)
+                    .addComponent(lbNomeIdResponsavel))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPrazo, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbPrioridade, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDateAbertura))
+                    .addComponent(txtDateAbertura)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(162, 162, 162))
         );
         jPanel2Layout.setVerticalGroup(
@@ -291,16 +297,20 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbTitulo))))
-                .addGap(31, 31, 31)
-                .addComponent(lbDescricao)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbNomeIdResponsavel)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDescricao, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnConfirmar)
                     .addComponent(lbIconNovoChamado))
-                .addGap(42, 42, 42))
+                .addGap(33, 33, 33))
         );
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -362,8 +372,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 lbNomeListaColaboradorMouseClicked(evt);
             }
         });
-
-        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo canto superior.png")); // NOI18N
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -491,23 +499,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         lbNovoChamado.setVisible(true);
     }//GEN-LAST:event_lbNovoChamadoMouseClicked
     
-    public void id_fun (){
-        
-        
-        try {
-            //int idFun = 0;
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            String sql = "SELECT MAX(id_fun) as idFun FROM chamado;";
-            statement = conexao.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-            if(rs.next()){
-                idFun = rs.getInt("idFun");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(tela_abertura_chamados.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+   
     
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
             try {
@@ -522,7 +514,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 String grupo = (String) cbGrupo.getSelectedItem();
                 String status = (String) cbStatus.getSelectedItem();
                 String prioridade = (String) cbPrioridade.getSelectedItem();
-                //String id_func = (String) 
                 statement = conexao.prepareStatement(sql);
                 statement.setString(1, txtCpf.getText());
                 statement.setString(2, grupo);
@@ -532,7 +523,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 statement.setString(6, prioridade);
                 statement.setString(7, txtDescricao.getText());
                 statement.setString(8, data);
-                statement.setInt(9, idFun);
+                statement.setString(9, txtId.getText());
                 statement.execute();
                 statement.close();
                 JOptionPane.showMessageDialog(null,"Chamado criado com sucesso!");
@@ -695,6 +686,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbNomeCpf;
     private javax.swing.JLabel lbNomeDataAbertura;
     private javax.swing.JLabel lbNomeGrupo;
+    private javax.swing.JLabel lbNomeIdResponsavel;
     private javax.swing.JLabel lbNomeListaColaborador;
     private javax.swing.JLabel lbNomeNovoChamado;
     private javax.swing.JLabel lbNomeStatus;
@@ -709,6 +701,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDateAbertura;
     private javax.swing.JTextArea txtDescricao;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtPrazo;
     private javax.swing.JTextField txtTitulo;
     private javax.swing.JTextField txtUsuario;
