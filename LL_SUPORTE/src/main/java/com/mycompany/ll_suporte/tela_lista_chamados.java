@@ -24,7 +24,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = "154869"; // 154869
+    String senha = ""; // 154869
     
     public static String id;
     
@@ -45,8 +45,8 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             while(resultado.next()){
                 model.addRow(new Object[]{
                     resultado.getString("status_chamado"),
-                    resultado.getString("id_chamado"), //****FORMATAR A DATA****
-                    resultado.getString("data_abertura_chamado"),
+                    resultado.getString("id_chamado"), 
+                    resultado.getString("data_abertura_chamado"), //****FORMATAR A DATA****
                     resultado.getString("cpf_clien"), // usuario
                     resultado.getString("titulo_chamado"),
                     resultado.getString("grupo_chamado"),
@@ -88,7 +88,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         lbNovoUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
-        lbLogo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbRelatorio = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -217,8 +216,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             }
         });
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Desktop\\TRABALHO_TEC_NIGTH\\icones_tec_nigth\\logo canto de tela.png")); // NOI18N
-
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         lbRelatorio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -287,9 +284,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(23, 23, 23)
-                                        .addComponent(jLabel2)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(lbLogo))
+                                        .addComponent(jLabel2))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(58, 58, 58)
                                         .addComponent(lbNovoChamado))
@@ -327,9 +322,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lbLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(107, 107, 107)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,7 +514,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lbConsultar;
     private javax.swing.JLabel lbListaColaboradores;
-    private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbMenu;
     private javax.swing.JLabel lbNovoChamado;
     private javax.swing.JLabel lbNovoColaborador;

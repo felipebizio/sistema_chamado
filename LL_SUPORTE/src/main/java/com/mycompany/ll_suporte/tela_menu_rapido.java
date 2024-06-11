@@ -42,21 +42,23 @@ public class tela_menu_rapido extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(123, 150, 212));
 
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo maior.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
+                .addContainerGap(156, Short.MAX_VALUE)
                 .addComponent(lbLogo)
-                .addGap(178, 178, 178))
+                .addGap(142, 142, 142))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbLogo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(137, 137, 137))
         );
 
         btnNovoChamado.setBackground(new java.awt.Color(65, 82, 179));

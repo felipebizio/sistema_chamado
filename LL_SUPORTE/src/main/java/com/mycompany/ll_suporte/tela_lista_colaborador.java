@@ -25,7 +25,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = "154869"; // 154869
+        String senha = ""; // 154869
         
         
     public tela_lista_colaborador() {
@@ -192,6 +192,8 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo canto superior.png")); // NOI18N
+
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoChamado.setText("NOVO CHAMADO");
         lbNovoChamado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -270,42 +272,40 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(58, 58, 58)
+                            .addComponent(lbNovoUsuario))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(lbNovoChamado))
+                        .addComponent(jSeparator3)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addComponent(lbNovoColaborador))
+                        .addComponent(jSeparator4)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(58, 58, 58)
+                            .addComponent(lbRelatorio))
+                        .addComponent(jSeparator5)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addComponent(lbConsultar))
+                        .addComponent(jSeparator6)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(lbListaColaborador))
+                        .addComponent(jSeparator7)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(61, 61, 61)
+                            .addComponent(lbMenu))
+                        .addComponent(jSeparator8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbLogo)
-                        .addGap(79, 79, 79))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(lbNovoUsuario))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(lbNovoChamado))
-                            .addComponent(jSeparator3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(lbNovoColaborador))
-                            .addComponent(jSeparator4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(lbRelatorio))
-                            .addComponent(jSeparator5)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(lbConsultar))
-                            .addComponent(jSeparator6)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(lbListaColaborador))
-                            .addComponent(jSeparator7)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(lbMenu))
-                            .addComponent(jSeparator8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(74, 74, 74)
+                        .addComponent(lbLogo)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -316,9 +316,9 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(26, 26, 26)
                 .addComponent(lbLogo)
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(lbNovoChamado)
@@ -348,7 +348,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 .addComponent(lbMenu)
                 .addGap(11, 11, 11)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

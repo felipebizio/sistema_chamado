@@ -20,14 +20,14 @@ import javax.swing.JOptionPane;
  * @author felip
  */
 public class tela_abertura_chamados extends javax.swing.JFrame {
-    
+    public int idFun = 0;
     Connection conexao = null;
     PreparedStatement statement = null;
     
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = "154869"; // 154869
+    String senha = ""; // 154869
     /**
      * Creates new form tela_abertura_chamados
      */
@@ -70,16 +70,14 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         txtCpf = new javax.swing.JTextField();
         lbNomeDataAbertura = new javax.swing.JLabel();
         txtDateAbertura = new javax.swing.JTextField();
+        lbIconNovoChamado = new javax.swing.JLabel();
         lbNovoChamado = new javax.swing.JLabel();
         lbNovoColaborador = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
         lbRelatorios = new javax.swing.JLabel();
         lbMenu = new javax.swing.JLabel();
         lbNovoUsuario = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         lbNomeListaColaborador = new javax.swing.JLabel();
         lbLogo = new javax.swing.JLabel();
@@ -144,7 +142,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
 
         btnPesquisar.setBackground(new java.awt.Color(123, 150, 212));
         btnPesquisar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnPesquisar.setText("+");
+        btnPesquisar.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Downloads\\procurar.png")); // NOI18N
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -206,14 +204,17 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                                 .addComponent(lbNomeNovoChamado)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 480, Short.MAX_VALUE)
                                 .addComponent(btnCancelar)
                                 .addGap(27, 27, 27)
                                 .addComponent(btnConfirmar))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbIconNovoChamado)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -236,19 +237,15 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(txtCpf))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPesquisar)
-                        .addGap(178, 178, 178))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbPrazo)
-                            .addComponent(lbPrioridade)
-                            .addComponent(lbNomeDataAbertura)
-                            .addComponent(lbNomeStatus))
-                        .addGap(44, 44, 44)))
+                    .addComponent(lbPrazo)
+                    .addComponent(lbPrioridade)
+                    .addComponent(lbNomeDataAbertura)
+                    .addComponent(lbNomeStatus))
+                .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPrazo, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -262,12 +259,13 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(lbNomeNovoChamado)
                 .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNomeCpf)
-                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar)
-                    .addComponent(lbNomeDataAbertura)
-                    .addComponent(txtDateAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbNomeCpf)
+                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbNomeDataAbertura)
+                        .addComponent(txtDateAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
@@ -300,7 +298,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
-                    .addComponent(btnConfirmar))
+                    .addComponent(btnConfirmar)
+                    .addComponent(lbIconNovoChamado))
                 .addGap(42, 42, 42))
         );
 
@@ -364,6 +363,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             }
         });
 
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo canto superior.png")); // NOI18N
+
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -383,10 +384,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lbMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -397,6 +394,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                             .addComponent(jSeparator5)
                             .addComponent(jSeparator6)
                             .addComponent(jSeparator7)
+                            .addComponent(jSeparator8)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -404,21 +402,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lbNomeListaColaborador)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(3, 3, 3)
-                                                .addComponent(lbNovoColaborador))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(1, 1, 1)
                                                 .addComponent(lbRelatorios))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jLabel2)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(jLabel3))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jLabel4)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(lbNovoUsuario))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(66, 66, 66)
                                         .addComponent(lbLogo))
@@ -427,10 +412,18 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                                         .addComponent(lbNovoChamado))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(48, 48, 48)
-                                        .addComponent(lbConsultar)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jSeparator8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addComponent(lbConsultar))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbMenu)
+                                            .addComponent(lbNovoColaborador))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(lbNovoUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -438,10 +431,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbLogo)
                 .addGap(30, 30, 30)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -449,13 +438,8 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 .addComponent(lbNovoChamado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbNovoUsuario)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbNovoUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -506,13 +490,31 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
         tela_abertura_chamados lbNovoChamado = new tela_abertura_chamados();
         lbNovoChamado.setVisible(true);
     }//GEN-LAST:event_lbNovoChamadoMouseClicked
-
+    
+    public void id_fun (){
+        
+        
+        try {
+            //int idFun = 0;
+            conexao = DriverManager.getConnection(url, usuario, senha);
+            String sql = "SELECT MAX(id_fun) as idFun FROM chamado;";
+            statement = conexao.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                idFun = rs.getInt("idFun");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_abertura_chamados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
             try {
                 // TODO add your handling code here:
                 conexao = DriverManager.getConnection(url, usuario, senha);
-                String sql = "INSERT INTO chamado (grupo_chamado, titulo_chamado, status_chamado, prazo_chamado, prioridade_chamado,"
-                        + " descricao_chamado, data_abertura_chamado) VALUES (?,?,?,?,?,?,?)";                      
+                String sql = "INSERT INTO chamado (cpf_clien, grupo_chamado, titulo_chamado, status_chamado, prazo_chamado, prioridade_chamado,"
+                        + " descricao_chamado, data_abertura_chamado,id_fun) VALUES (?,?,?,?,?,?,?,?,?)";                      
                 String dia = txtDateAbertura.getText().substring(0,2);
                 String mes = txtDateAbertura.getText().substring(3,5);
                 String ano = txtDateAbertura.getText().substring(6);
@@ -520,14 +522,17 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
                 String grupo = (String) cbGrupo.getSelectedItem();
                 String status = (String) cbStatus.getSelectedItem();
                 String prioridade = (String) cbPrioridade.getSelectedItem();
+                //String id_func = (String) 
                 statement = conexao.prepareStatement(sql);
-                statement.setString(1, grupo);
-                statement.setString(2, txtTitulo.getText());
-                statement.setString(3, status);
-                statement.setString(4, txtPrazo.getText());
-                statement.setString(5, prioridade);
-                statement.setString(6, txtDescricao.getText());
-                statement.setString(7, data);
+                statement.setString(1, txtCpf.getText());
+                statement.setString(2, grupo);
+                statement.setString(3, txtTitulo.getText());
+                statement.setString(4, status);
+                statement.setString(5, txtPrazo.getText());
+                statement.setString(6, prioridade);
+                statement.setString(7, txtDescricao.getText());
+                statement.setString(8, data);
+                statement.setInt(9, idFun);
                 statement.execute();
                 statement.close();
                 JOptionPane.showMessageDialog(null,"Chamado criado com sucesso!");
@@ -671,9 +676,6 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbPrioridade;
     private javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -687,6 +689,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JLabel lbConsultar;
     private javax.swing.JLabel lbDescricao;
+    private javax.swing.JLabel lbIconNovoChamado;
     private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbMenu;
     private javax.swing.JLabel lbNomeCpf;
