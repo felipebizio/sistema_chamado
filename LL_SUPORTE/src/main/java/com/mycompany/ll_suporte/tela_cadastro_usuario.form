@@ -203,11 +203,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbLogo">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Users\lbizio\Desktop\TECH_NIGTH_GIT_HUB\logo maior.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeCompleto">
         </Component>

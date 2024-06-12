@@ -24,7 +24,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = "154869"; // 154869
+    String senha = ""; // 154869
     
     public static String id;
     
@@ -451,7 +451,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
      
             int linha = tbListaChamados.getSelectedRow();
 
-            id = tbListaChamados.getValueAt(linha, 0).toString();
+            id = tbListaChamados.getValueAt(linha, 1).toString();
 
             tela_lista_chamados.this.dispose();
             tela_detalhe_chamado objeto2 = new tela_detalhe_chamado();

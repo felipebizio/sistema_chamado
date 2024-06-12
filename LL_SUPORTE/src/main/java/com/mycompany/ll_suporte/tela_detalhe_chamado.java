@@ -4,9 +4,15 @@
  */
 package com.mycompany.ll_suporte;
 
+import static com.mycompany.ll_suporte.tela_lista_chamados.id;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,17 +20,49 @@ import java.sql.PreparedStatement;
  */
 public class tela_detalhe_chamado extends javax.swing.JFrame {
 
-    
+    int id_chamado = Integer.parseInt(id);
         Connection conexao = null;
         PreparedStatement statement = null;
 
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = "154869"; // 154869
+        String senha = ""; // 154869
     /**
      * Creates new form tela_detalhe_chamado
      */
+        
+    public void detalhe_chamado(){
+        
+        try {
+            conexao = DriverManager.getConnection(url, usuario, senha);
+            statement = conexao.prepareStatement("SELECT * FROM detalhe_chamado WHERE id_chamado = ? ;");
+            statement.setInt(1, id_chamado);
+            ResultSet resultado = statement.executeQuery();
+            
+            if (resultado.next()){
+                try {
+                    txtNumero.setText(resultado.getString("id_chamado"));
+                    txtUsuario.setText(resultado.getString("nome_completo_cliente"));
+                    //txtNumero.setText(resultado.getString("id_chamado")); //GRUPO
+                    txtTitulo.setText(resultado.getString("titulo_chamado"));
+                    txtResponsavel.setText(resultado.getString("id_fun"));
+                    txtAbertura.setText(resultado.getString("data_formatada"));
+                    //txtAbertura.setText(resultado.getString("data_formatada"));//STATUS
+                    txtPrazo.setText(resultado.getString("prazo_chamado"));
+                    // txtAbertura.setText(resultado.getString("data_formatada"));//PRIORIDADE
+                    txtDescricao.setText(resultado.getString("descricao_chamado"));
+                    txtSolucao.setText(resultado.getString("solucao_chamado"));
+                } catch (SQLException ex) {
+                    Logger.getLogger(tela_detalhe_chamado.class.getName()).log(Level.SEVERE, null, ex);
+                }  
+            }
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_detalhe_chamado.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+      
     public tela_detalhe_chamado() {
         initComponents();
     }
@@ -91,6 +129,11 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         lbLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(123, 150, 212));
 
@@ -170,10 +213,20 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         btnSalvar.setBackground(new java.awt.Color(123, 150, 212));
         btnSalvar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnEditar.setBackground(new java.awt.Color(123, 150, 212));
         btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -558,6 +611,71 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        detalhe_chamado();
+        txtNumero.setEditable(false);
+        txtUsuario.setEditable(false);
+        txtTitulo.setEditable(false);
+        txtResponsavel.setEditable(false);
+        txtAbertura.setEditable(false);
+        txtPrazo.setEditable(false);
+        txtDescricao.setEditable(false);
+        txtSolucao.setEditable(false);
+        btnSalvar.setEnabled(false);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        txtNumero.setEditable(true);
+        txtUsuario.setEditable(true);
+        txtTitulo.setEditable(true);
+        txtResponsavel.setEditable(true);
+        txtAbertura.setEditable(true);
+        txtPrazo.setEditable(true);
+        txtDescricao.setEditable(true);
+        txtSolucao.setEditable(true);
+        btnSalvar.setEnabled(true);
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        try {
+            statement = conexao.prepareStatement(
+                "UPDATE detalhe_chamado SET nome_completo_cliente = ?, titulo_chamado = ?, id_fun = ?, " +
+                "data_abertura_chamado = ?, prazo_chamado = ?, descricao_chamado = ?, solucao_chamado = ? WHERE id_chamado = ?");
+            String dia = txtAbertura.getText().substring(0,2);
+            String mes = txtAbertura.getText().substring(3,5);
+            String ano = txtAbertura.getText().substring(6);
+            String data = ano +"-"+mes+"-"+dia;
+            statement.setString(1, txtUsuario.getText());
+            statement.setString(2, txtTitulo.getText());
+            statement.setString(3, txtResponsavel.getText());
+            statement.setString(4, data);
+            statement.setString(5, txtPrazo.getText());
+            statement.setString(6, txtDescricao.getText());
+            statement.setString(7, txtSolucao.getText());
+            statement.setInt(8, Integer.parseInt(txtNumero.getText()));
+
+            statement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!");
+
+            txtNumero.setEditable(false);
+            txtUsuario.setEditable(false);
+            txtTitulo.setEditable(false);
+            txtResponsavel.setEditable(false);
+            txtAbertura.setEditable(false);
+            txtPrazo.setEditable(false);
+            txtDescricao.setEditable(false);
+            txtSolucao.setEditable(false);
+            btnSalvar.setEnabled(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_detalhe_chamado.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
