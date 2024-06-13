@@ -4,6 +4,7 @@
  */
 package com.mycompany.ll_suporte;
 
+import static com.mycompany.ll_suporte.tela_lista_chamados.id;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,7 +27,8 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
         String senha = ""; // 154869
-        
+        public static String id;
+
         
     public tela_lista_colaborador() {
         initComponents();
@@ -130,6 +132,11 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 "ID", "Nome", "CPF", "Cargo", "Email", "Telefone"
             }
         ));
+        tblTabelaColaborador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTabelaColaboradorMouseClicked(evt);
+            }
+        });
         spnTabelaColaborador.setViewportView(tblTabelaColaborador);
 
         rbtnAtendente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -431,6 +438,18 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         this.PopularListaColaborador ("SELECT id_funcionario, nome_completo_funcionario, cpf_funcionario, cargo, email_funcionario,telefone_funcionario "
                 + " from funcionario ");
     }//GEN-LAST:event_formWindowOpened
+
+    private void tblTabelaColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelaColaboradorMouseClicked
+        // TODO add your handling code here:
+        
+            int linha = tblTabelaColaborador.getSelectedRow();
+
+            id = tblTabelaColaborador.getValueAt(linha, 1).toString();
+
+            tela_lista_colaborador.this.dispose();
+            tela_detalhe_chamado objeto2 = new tela_detalhe_chamado();
+            objeto2.setVisible(true);
+    }//GEN-LAST:event_tblTabelaColaboradorMouseClicked
 
     /**
      * @param args the command line arguments

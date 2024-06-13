@@ -265,14 +265,14 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
             } else {
                 try {
                     conexao = DriverManager.getConnection(url, usuario, senha);
-                    String sql = "INSERT INTO funcionario (nome_completo_funcionario, senha_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?,?,?,?,?)";
+                    String sql = "INSERT INTO funcionario (nome_completo_funcionario, senha_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?,?,?,?,?);";
                     statement = conexao.prepareStatement(sql);
                     //statement.setString(1,txtNomeUsuario.getText());
-                    statement.setString(1,txtNomeUsuario.getText());
-                    statement.setString(2,txtSenha.getText());
-                    statement.setString(3,txtCpfUsuario.getText());
-                    statement.setString(4,txtEmailUsuario.getText());
-                    statement.setString(5,txtTelefone.getText());
+                    statement.setString(1,txtNomeUsuario.getText()); // nome_completo_funcionario
+                    statement.setString(2,txtSenha.getText()); // senha_funcionario
+                    statement.setString(3,txtCpfUsuario.getText()); // cpf_funcionario
+                    statement.setString(4,txtEmailUsuario.getText()); // email_funcionario
+                    statement.setString(5,txtTelefone.getText()); // telefone_funcionario
                     statement.execute();
                     statement.close();
                     JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");

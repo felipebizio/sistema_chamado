@@ -44,13 +44,13 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 try {
                     txtNumero.setText(resultado.getString("id_chamado"));
                     txtUsuario.setText(resultado.getString("nome_completo_cliente"));
-                    //txtNumero.setText(resultado.getString("id_chamado")); //GRUPO
+                    cbGrupoAssunto.addItem(resultado.getString("grupo_chamado")); //GRUPO
                     txtTitulo.setText(resultado.getString("titulo_chamado"));
                     txtResponsavel.setText(resultado.getString("id_fun"));
                     txtAbertura.setText(resultado.getString("data_formatada"));
-                    //txtAbertura.setText(resultado.getString("data_formatada"));//STATUS
+                    txtAbertura.setText(resultado.getString("data_formatada"));//STATUS
                     txtPrazo.setText(resultado.getString("prazo_chamado"));
-                    // txtAbertura.setText(resultado.getString("data_formatada"));//PRIORIDADE
+                    txtAbertura.setText(resultado.getString("data_formatada"));//PRIORIDADE
                     txtDescricao.setText(resultado.getString("descricao_chamado"));
                     txtSolucao.setText(resultado.getString("solucao_chamado"));
                 } catch (SQLException ex) {
@@ -545,7 +545,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
         // TODO add your handling code here:
         tela_detalhe_chamado.this.dispose();
-        tela_detalhe_chamado lbConsultar = new tela_detalhe_chamado();
+        tela_lista_chamados lbConsultar = new tela_lista_chamados();
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
 
@@ -592,22 +592,6 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     }//GEN-LAST:event_cbGrupoAssuntoActionPerformed
 
     private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroActionPerformed
@@ -615,63 +599,82 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         detalhe_chamado();
-        txtNumero.setEditable(false);
-        txtUsuario.setEditable(false);
-        txtTitulo.setEditable(false);
-        txtResponsavel.setEditable(false);
-        txtAbertura.setEditable(false);
-        txtPrazo.setEditable(false);
-        txtDescricao.setEditable(false);
-        txtSolucao.setEditable(false);
+        txtNumero.setEnabled(false);
+        txtUsuario.setEnabled(false);
+        txtTitulo.setEnabled(false);
+        txtResponsavel.setEnabled(false);
+        txtAbertura.setEnabled(false);
+        txtPrazo.setEnabled(false);
+        txtDescricao.setEnabled(false);
+        txtSolucao.setEnabled(false);
         btnSalvar.setEnabled(false);
+        cbGrupoAssunto.setEnabled(false);
+        cbStatus.setEnabled(false);
+        cbPrioridade.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        txtNumero.setEditable(true);
-        txtUsuario.setEditable(true);
-        txtTitulo.setEditable(true);
-        txtResponsavel.setEditable(true);
-        txtAbertura.setEditable(true);
-        txtPrazo.setEditable(true);
-        txtDescricao.setEditable(true);
-        txtSolucao.setEditable(true);
+        //txtNumero.setEnabled(true);
+        txtUsuario.setEnabled(true);
+        txtTitulo.setEnabled(true);
+        txtResponsavel.setEnabled(true);
+        //txtAbertura.setEnabled(true);
+        txtPrazo.setEnabled(true);
+        txtDescricao.setEnabled(true);
+        txtSolucao.setEnabled(true);
         btnSalvar.setEnabled(true);
+        cbGrupoAssunto.setEnabled(true);
+        cbStatus.setEnabled(true);
+        cbPrioridade.setEnabled(true);
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         try {
-            statement = conexao.prepareStatement(
-                "UPDATE detalhe_chamado SET nome_completo_cliente = ?, titulo_chamado = ?, id_fun = ?, " +
-                "data_abertura_chamado = ?, prazo_chamado = ?, descricao_chamado = ?, solucao_chamado = ? WHERE id_chamado = ?");
+           /*
+             String prioridade = (String) cbPrioridade.getSelectedItem();*/
+           
+            String sql = "UPDATE chamado SET  titulo_chamado = ?, id_fun = ?, grupo_chamado = ?, status_chamado = ?, data_abertura_chamado = ?,"
+                    + "prioridade_chamado = ?, prazo_chamado = ?, descricao_chamado = ?, solucao_chamado = ? WHERE id_chamado = ?";
+            
+            statement = conexao.prepareStatement(sql);
             String dia = txtAbertura.getText().substring(0,2);
             String mes = txtAbertura.getText().substring(3,5);
             String ano = txtAbertura.getText().substring(6);
             String data = ano +"-"+mes+"-"+dia;
-            statement.setString(1, txtUsuario.getText());
-            statement.setString(2, txtTitulo.getText());
-            statement.setString(3, txtResponsavel.getText());
-            statement.setString(4, data);
-            statement.setString(5, txtPrazo.getText());
-            statement.setString(6, txtDescricao.getText());
-            statement.setString(7, txtSolucao.getText());
-            statement.setInt(8, Integer.parseInt(txtNumero.getText()));
+            String grupo = (String) cbGrupoAssunto.getSelectedItem();
+            String status = (String) cbStatus.getSelectedItem();
+            String prioridade = (String) cbPrioridade.getSelectedItem();
+           // statement.setString(1, txtUsuario.getText());
+            statement.setString(1, txtTitulo.getText()); // titulo_chamado
+            statement.setString(2, txtResponsavel.getText()); // id_fun
+            statement.setString(3, grupo); //GRUPO
+            statement.setString(4, status);//status
+            statement.setString(5, data); // data_abertura_chamado
+            statement.setString(6, prioridade); //prioridade
+            statement.setString(7, txtPrazo.getText()); // prazo_chamado
+            statement.setString(8, txtDescricao.getText()); // descricao_chamado
+            statement.setString(9, txtSolucao.getText()); // solucao_chamado
+            statement.setInt(10, Integer.parseInt(txtNumero.getText())); // id_chamado
 
             statement.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!");
 
-            txtNumero.setEditable(false);
+            /*txtNumero.setEditable(false);
             txtUsuario.setEditable(false);
+            cbGrupoAssunto.setEditable(false);
             txtTitulo.setEditable(false);
             txtResponsavel.setEditable(false);
             txtAbertura.setEditable(false);
+            cbStatus.setEditable(false);
             txtPrazo.setEditable(false);
+            cbPrioridade.setEditable(false);
             txtDescricao.setEditable(false);
             txtSolucao.setEditable(false);
-            btnSalvar.setEnabled(false);
+            btnSalvar.setEnabled(false);*/
         } catch (SQLException ex) {
             Logger.getLogger(tela_detalhe_chamado.class.getName()).log(Level.SEVERE, null, ex);
         }
