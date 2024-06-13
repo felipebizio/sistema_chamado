@@ -26,8 +26,9 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = ""; // 154869
-        public static String id;
+        String senha = "154869"; // 154869
+        
+        public static String id2;
 
         
     public tela_lista_colaborador() {
@@ -442,12 +443,12 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
     private void tblTabelaColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelaColaboradorMouseClicked
         // TODO add your handling code here:
         
-            int linha = tblTabelaColaborador.getSelectedRow();
+            int linha1 = tblTabelaColaborador.getSelectedRow();
 
-            id = tblTabelaColaborador.getValueAt(linha, 1).toString();
+            id2 = tblTabelaColaborador.getValueAt(linha1, 0).toString();
 
             tela_lista_colaborador.this.dispose();
-            tela_detalhe_chamado objeto2 = new tela_detalhe_chamado();
+            tela_perfil_colaborador objeto2 = new tela_perfil_colaborador();
             objeto2.setVisible(true);
     }//GEN-LAST:event_tblTabelaColaboradorMouseClicked
 

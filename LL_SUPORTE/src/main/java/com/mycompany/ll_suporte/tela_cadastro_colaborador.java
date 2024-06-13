@@ -25,7 +25,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = ""; // 154869
+    String senha = "154869"; // 154869
     
     
     public tela_cadastro_colaborador() {
@@ -132,8 +132,11 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
 
         rbDesenvolvedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbDesenvolvedor.setText("Desenvolvedor");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo maior.png")); // NOI18N
+        rbDesenvolvedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbDesenvolvedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -249,7 +252,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
-        
+        String opcaoSelecionada = null;
         String cpf = txtCpfUsuario.getText();
         String telefone = txtTelefone.getText();
             
@@ -261,11 +264,21 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo CPF.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                     txtCpfUsuario.requestFocus(); // Requer foco novamente se a entrada for inválida
-                } 
+                }
+                
             } else {
+                
+                
+                if (rbAtendente.isSelected()){
+                    opcaoSelecionada = "Atendente";
+                }else if (rbDesenvolvedor.isSelected()){
+                    opcaoSelecionada = "Desenvolvedor";
+                }else{
+                    JOptionPane.showMessageDialog(null,"Por favor, selecione um cargo!", "ERRO",JOptionPane.ERROR_MESSAGE);
+                }
                 try {
                     conexao = DriverManager.getConnection(url, usuario, senha);
-                    String sql = "INSERT INTO funcionario (nome_completo_funcionario, senha_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES (?,?,?,?,?);";
+                    String sql = "INSERT INTO funcionario (nome_completo_funcionario, senha_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, cargo) VALUES (?,?,?,?,?,?);";
                     statement = conexao.prepareStatement(sql);
                     //statement.setString(1,txtNomeUsuario.getText());
                     statement.setString(1,txtNomeUsuario.getText()); // nome_completo_funcionario
@@ -273,6 +286,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     statement.setString(3,txtCpfUsuario.getText()); // cpf_funcionario
                     statement.setString(4,txtEmailUsuario.getText()); // email_funcionario
                     statement.setString(5,txtTelefone.getText()); // telefone_funcionario
+                    statement.setString(6, opcaoSelecionada); //cargo
                     statement.execute();
                     statement.close();
                     JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
@@ -295,7 +309,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
         // TODO add your handling code here:
         
-        /*conexao = DriverManager.getConnection(url, usuario, senha);
+        /* conexao = DriverManager.getConnection(url, usuario, senha);
         statement = conexao.prepareStatement(sql);
         statement.execute();
         ResultSet resultado = statement.executeQuery(sql);
@@ -303,10 +317,15 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         if (rbAtendente = True) && (rbDesenvolvedor = False){
             cargo == "Atendente";
         }else if (rbDesenvolvedor = True) && (rbAtendente = False){
-            cargo == "Desenvolvedor"
-    }
-        */
+            cargo == "Desenvolvedor" */ 
+    
+        
     }//GEN-LAST:event_rbAtendenteActionPerformed
+
+    private void rbDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDesenvolvedorActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_rbDesenvolvedorActionPerformed
 
     /**
      * @param args the command line arguments

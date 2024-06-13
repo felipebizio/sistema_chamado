@@ -27,7 +27,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = ""; // 154869
+        String senha = "154869"; // 154869
     /**
      * Creates new form tela_detalhe_chamado
      */
@@ -662,19 +662,6 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
             statement.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!");
-
-            /*txtNumero.setEditable(false);
-            txtUsuario.setEditable(false);
-            cbGrupoAssunto.setEditable(false);
-            txtTitulo.setEditable(false);
-            txtResponsavel.setEditable(false);
-            txtAbertura.setEditable(false);
-            cbStatus.setEditable(false);
-            txtPrazo.setEditable(false);
-            cbPrioridade.setEditable(false);
-            txtDescricao.setEditable(false);
-            txtSolucao.setEditable(false);
-            btnSalvar.setEnabled(false);*/
         } catch (SQLException ex) {
             Logger.getLogger(tela_detalhe_chamado.class.getName()).log(Level.SEVERE, null, ex);
         }

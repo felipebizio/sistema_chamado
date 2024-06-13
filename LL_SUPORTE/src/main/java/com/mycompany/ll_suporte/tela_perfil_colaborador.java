@@ -4,7 +4,7 @@
  */
 package com.mycompany.ll_suporte;
 
-import static com.mycompany.ll_suporte.tela_lista_chamados.id;
+import static com.mycompany.ll_suporte.tela_lista_colaborador.id2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,37 +20,43 @@ import java.util.logging.Logger;
  */
 public class tela_perfil_colaborador extends javax.swing.JFrame {
     
-    int id_fun = Integer.parseInt(id);
+    int id_fun = Integer.parseInt(id2);
     Connection conexao = null;
     PreparedStatement statement = null;
 
 
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = ""; // 154869
+    String senha = "154869"; // 154869
         
     /**
      * Creates new form tela_perfil_colaborador
      */
     public void perfil_colaborador(){
-    
+       
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
-            statement = conexao.prepareStatement("SELECT * FROM funcionarioWHERE id_chamado = ? ;");
+            statement = conexao.prepareStatement("SELECT * FROM funcionario WHERE id_funcionario = ? ;");
             statement.setInt(1, id_fun);
             ResultSet resultado = statement.executeQuery();
             
-            txtId.setText(resultado.getString("id_funcionario"));
-            txtNomeUsuario.setText(resultado.getString("nome_completo_funcionario"));
-            txtEmail.setText(resultado.getString("email_funcionario"));
-            txtCPF.setText(resultado.getString("cpf_funcionario"));
-            txtCargo.setText(resultado.getString("cargo"));
-            txtTelefone.setText(resultado.getString("telefone_funcionario"));
-            txtAnotacoes.setText(resultado.getString("anotacoes_funcionario"));
+            if (resultado.next()){ 
+                try {
+                    txtId.setText(resultado.getString("id_funcionario"));
+                    txtNomeUsuario.setText(resultado.getString("nome_completo_funcionario"));
+                    txtEmail.setText(resultado.getString("email_funcionario"));
+                    txtCPF.setText(resultado.getString("cpf_funcionario"));
+                    txtCargo.setText(resultado.getString("cargo"));
+                    txtTelefone.setText(resultado.getString("telefone_funcionario"));
+                    txtAnotacoes.setText(resultado.getString("anotacoes_funcionario"));
+                } catch (SQLException ex) {
+                    Logger.getLogger(tela_perfil_colaborador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(tela_perfil_colaborador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     
     public tela_perfil_colaborador() {
@@ -84,6 +91,7 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         lbNomeId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
         lbLogo = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbNomeNovoChado = new javax.swing.JLabel();
@@ -102,6 +110,11 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(123, 150, 212));
 
@@ -147,9 +160,23 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         btnEditar.setBackground(new java.awt.Color(123, 150, 212));
         btnEditar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         lbNomeId.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeId.setText("ID:");
+
+        btnSalvar.setBackground(new java.awt.Color(123, 150, 212));
+        btnSalvar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSalvar.setText("SALVAR");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -195,10 +222,12 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
                 .addGap(79, 79, 79))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
                 .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,10 +256,11 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
                 .addComponent(lbAnotacoes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -475,6 +505,54 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        perfil_colaborador();
+        txtId.setEnabled(false);
+        txtNomeUsuario.setEnabled(false);
+        txtEmail.setEnabled(false);
+        txtCPF.setEnabled(false);
+        txtCargo.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtAnotacoes.setEnabled(false);
+   
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            // TODO add your handling code here:
+            
+            String sql = "UPDATE funcionario SET nome_completo_funcionario = ?, cpf_funcionario = ?, telefone_funcionario = ?,"
+                    + "email_funcionario = ?, cargo = ?, anotacoes_funcionario = ? WHERE id_funcionario = ?";
+            
+            statement = conexao.prepareStatement(sql);
+            statement.setString(1, txtNomeUsuario.getText()); // nome_completo_funcionario
+            statement.setString(2, txtCPF.getText());//cpf_funcionario
+            statement.setString(3, txtTelefone.getText()); // telefone_funcionario
+            statement.setString(4, txtEmail.getText()); //email_funcionario
+            statement.setString(5, txtCargo.getText()); //cargo
+            statement.setString(6, txtAnotacoes.getText()); //anotacoes_funcionario
+            statement.setInt(7, Integer.parseInt(txtId.getText())); // id_chamado
+            
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(tela_perfil_colaborador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        txtId.setEnabled(false);
+        txtNomeUsuario.setEnabled(true);
+        txtEmail.setEnabled(true);
+        txtCPF.setEnabled(false);
+        txtCargo.setEnabled(true);
+        txtTelefone.setEnabled(true);
+        txtAnotacoes.setEnabled(true);
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -513,6 +591,7 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnFechar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
