@@ -55,10 +55,10 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         lbLogo = new javax.swing.JLabel();
         lbNomeSenha = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
         rbAtendente = new javax.swing.JRadioButton();
         rbDesenvolvedor = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(123, 150, 212));
@@ -138,6 +138,14 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo maior.png")); // NOI18N
+
+        txtSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSenhaFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,7 +166,6 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     .addComponent(txtTelefone)
                     .addComponent(lbNomeTelefone)
                     .addComponent(lbNomeSenha)
-                    .addComponent(txtSenha)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -166,7 +173,8 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(rbAtendente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbDesenvolvedor)))
+                        .addComponent(rbDesenvolvedor))
+                    .addComponent(txtSenha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -184,17 +192,17 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbDesenvolvedor)
                             .addComponent(rbAtendente))
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addComponent(lbNomeCadastro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbNomeSenha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(12, 12, 12)
                                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbNomeCpf)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCpfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,17 +214,15 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                                 .addComponent(lbNomeTelefone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel1)))
-                        .addGap(26, 26, 26)
+                            .addComponent(jLabel1))
+                        .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addComponent(lbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 68, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,7 +305,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(tela_cadastro_colaborador.class.getName()).log(Level.SEVERE, null, ex);
                 }
-        }
+            }
     }//GEN-LAST:event_btCriarActionPerformed
 
     private void txtCpfUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfUsuarioActionPerformed
@@ -307,25 +313,19 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCpfUsuarioActionPerformed
 
     private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
-        // TODO add your handling code here:
-        
-        /* conexao = DriverManager.getConnection(url, usuario, senha);
-        statement = conexao.prepareStatement(sql);
-        statement.execute();
-        ResultSet resultado = statement.executeQuery(sql);
-        
-        if (rbAtendente = True) && (rbDesenvolvedor = False){
-            cargo == "Atendente";
-        }else if (rbDesenvolvedor = True) && (rbAtendente = False){
-            cargo == "Desenvolvedor" */ 
-    
-        
+        // TODO add your handling code here:  
+        rbDesenvolvedor.setSelected(false);
     }//GEN-LAST:event_rbAtendenteActionPerformed
 
     private void rbDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDesenvolvedorActionPerformed
         // TODO add your handling code here:
-        
+        rbAtendente.setSelected(false);
     }//GEN-LAST:event_rbDesenvolvedorActionPerformed
+
+    private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_txtSenhaFocusGained
 
     /**
      * @param args the command line arguments
@@ -382,7 +382,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtCpfUsuario;
     private javax.swing.JTextField txtEmailUsuario;
     private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -68,8 +68,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     }
     public void detalhes_chamado (){
         
-           /* conexao = DriverManager.getConnection(url, usuario, senha);
-            statement = conexao.prepareStatement("SELECT * FROM "); */
+           
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -396,6 +395,8 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
+
         lbNomeMenu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeMenu.setText("MENU");
         lbNomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -467,11 +468,12 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
-                                .addComponent(lbLogo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel3)))
-                        .addGap(22, 22, 22)
+                                .addComponent(lbLogo)
+                                .addGap(82, 82, 82))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)))
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbNovoChamado)
@@ -552,7 +554,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // TODO add your handling code here:
         tela_detalhe_chamado.this.dispose();
-        tela_menu_rapido btnFechar = new tela_menu_rapido();
+        tela_lista_chamados btnFechar = new tela_lista_chamados();
         btnFechar.setVisible(true);
     }//GEN-LAST:event_btnFecharActionPerformed
 

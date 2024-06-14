@@ -42,23 +42,23 @@ public class tela_menu_rapido extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(123, 150, 212));
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo maior.png")); // NOI18N
+        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo maior.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addComponent(lbLogo)
-                .addGap(142, 142, 142))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbLogo)
-                .addGap(137, 137, 137))
+                .addGap(142, 142, 142))
         );
 
         btnNovoChamado.setBackground(new java.awt.Color(65, 82, 179));
@@ -248,9 +248,7 @@ public class tela_menu_rapido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListaColaboradorActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        tela_menu_rapido.this.dispose();
-        tela_login btnSair = new tela_login();
-        btnSair.setVisible(true); // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked

@@ -100,7 +100,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
             }
         });
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo maior.png")); // NOI18N
+        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo maior.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -126,18 +126,18 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                     .addComponent(lbNomeCPF)
                     .addComponent(lbNomeNomeCompleto)
                     .addComponent(txtNomeCompleto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(lbLogo)
-                .addGap(88, 88, 88))
+                .addGap(106, 106, 106))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(lbCadastroUsuario)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
                         .addComponent(lbNomeNomeCompleto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,8 +157,10 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lbLogo))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(lbLogo)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,8 +169,8 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +189,6 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
            String telefone = txtTelefone.getText();
            
            if (!cpf.matches("\\d+") || !telefone.matches("\\d+")) { // Verifica se o texto contém apenas letras
-               //JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campos CPF ou Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                if (!telefone.matches("\\d*")){
                    JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                    txtTelefone.requestFocus();
@@ -195,7 +196,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                    JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo CPF.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                    txtCPF.requestFocus(); // Requer foco novamente se a entrada for inválida
                } 
-            } else {
+            }else {
                 try {
                     conexao = DriverManager.getConnection(url, usuario, senha);
                     String sql = "INSERT INTO clientes (nome_completo_cliente, cpf_cliente, email_cliente, tel_cliente) VALUES (?,?,?,?)";
@@ -213,7 +214,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(tela_cadastro_usuario.class.getName()).log(Level.SEVERE, null, ex);
                 }
-           }
+            }
     }//GEN-LAST:event_btnCriarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

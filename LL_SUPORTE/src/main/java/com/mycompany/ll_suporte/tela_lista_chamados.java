@@ -55,17 +55,12 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                     resultado.getString("id_fun")//responsavel --> id_fun
                 });
             }
-            // id_fun
             conexao.close();
             statement.close();
         } catch (SQLException ex) {
             Logger.getLogger(tela_lista_chamados.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,9 +75,14 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbListaChamados = new javax.swing.JTable();
-        txtPesquisarChamado = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        btnHardware = new javax.swing.JButton();
+        btnServicoTi = new javax.swing.JButton();
+        btnRedes = new javax.swing.JButton();
+        btnSoftware = new javax.swing.JButton();
+        btnAcesso = new javax.swing.JButton();
+        lbNomeFiltrar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lbNovoChamado = new javax.swing.JLabel();
         lbConsultar = new javax.swing.JLabel();
         lbNovoUsuario = new javax.swing.JLabel();
@@ -126,14 +126,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbListaChamados);
 
-        txtPesquisarChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txtPesquisarChamado.setForeground(new java.awt.Color(204, 204, 204));
-        txtPesquisarChamado.setText("Pesquise um chamado...");
-
-        btnPesquisar.setBackground(new java.awt.Color(123, 150, 212));
-        btnPesquisar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnPesquisar.setText("PESQUISAR");
-
         btnVoltar.setBackground(new java.awt.Color(123, 150, 212));
         btnVoltar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnVoltar.setText("VOLTAR");
@@ -143,36 +135,117 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             }
         });
 
+        btnHardware.setBackground(new java.awt.Color(123, 150, 212));
+        btnHardware.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnHardware.setText("HARDWARE");
+        btnHardware.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHardwareActionPerformed(evt);
+            }
+        });
+
+        btnServicoTi.setBackground(new java.awt.Color(123, 150, 212));
+        btnServicoTi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnServicoTi.setText("SERVIÇOS DE TI");
+        btnServicoTi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServicoTiActionPerformed(evt);
+            }
+        });
+
+        btnRedes.setBackground(new java.awt.Color(123, 150, 212));
+        btnRedes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRedes.setText("REDES");
+        btnRedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRedesActionPerformed(evt);
+            }
+        });
+
+        btnSoftware.setBackground(new java.awt.Color(123, 150, 212));
+        btnSoftware.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSoftware.setText("SOFTWARE");
+        btnSoftware.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSoftwareActionPerformed(evt);
+            }
+        });
+
+        btnAcesso.setBackground(new java.awt.Color(123, 150, 212));
+        btnAcesso.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnAcesso.setText("ACESSO");
+        btnAcesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcessoActionPerformed(evt);
+            }
+        });
+
+        lbNomeFiltrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbNomeFiltrar.setText("FILTRAR GRUPO POR:");
+
+        jButton1.setBackground(new java.awt.Color(123, 150, 212));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setText("TODOS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtPesquisarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPesquisar)
-                .addGap(79, 79, 79))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(255, 255, 255)
+                                    .addComponent(jLabel1))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(52, 52, 52)
+                                    .addComponent(jButton1)
+                                    .addGap(41, 41, 41)
+                                    .addComponent(btnHardware)
+                                    .addGap(42, 42, 42)
+                                    .addComponent(btnServicoTi)
+                                    .addGap(42, 42, 42)
+                                    .addComponent(btnRedes)
+                                    .addGap(38, 38, 38)
+                                    .addComponent(btnSoftware)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAcesso)
+                            .addGap(12, 12, 12)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(lbNomeFiltrar)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
+                .addComponent(lbNomeFiltrar)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPesquisarChamado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(76, 76, 76)
+                    .addComponent(btnServicoTi)
+                    .addComponent(btnRedes)
+                    .addComponent(jButton1)
+                    .addComponent(btnSoftware)
+                    .addComponent(btnAcesso)
+                    .addComponent(btnHardware))
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,6 +275,8 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                 lbNovoUsuarioMouseClicked(evt);
             }
         });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
 
         lbNovoColaborador.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoColaborador.setText("NOVO COLABORADOR");
@@ -278,9 +353,6 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
-                                        .addComponent(jLabel2))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(58, 58, 58)
                                         .addComponent(lbNovoChamado))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -307,7 +379,10 @@ public class tela_lista_chamados extends javax.swing.JFrame {
                                 .addComponent(lbMenu))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
-                                .addComponent(lbConsultar)))
+                                .addComponent(lbConsultar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
@@ -317,7 +392,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addGap(23, 23, 23)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,6 +532,36 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     
     }//GEN-LAST:event_tbListaChamadosMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada from chamado");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnHardwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardwareActionPerformed
+        // TODO add your handling code here:
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada FROM chamado WHERE grupo_chamado LIKE 'HARDWARE';");
+    }//GEN-LAST:event_btnHardwareActionPerformed
+
+    private void btnServicoTiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicoTiActionPerformed
+        // TODO add your handling code here:
+       this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada FROM chamado WHERE grupo_chamado LIKE 'SERVIÇOS DE TI';");        
+    }//GEN-LAST:event_btnServicoTiActionPerformed
+
+    private void btnRedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedesActionPerformed
+        // TODO add your handling code here:
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada FROM chamado WHERE grupo_chamado LIKE 'REDES';");
+    }//GEN-LAST:event_btnRedesActionPerformed
+
+    private void btnSoftwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoftwareActionPerformed
+        // TODO add your handling code here:
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada FROM chamado WHERE grupo_chamado LIKE 'SOFTWARE';");
+    }//GEN-LAST:event_btnSoftwareActionPerformed
+
+    private void btnAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessoActionPerformed
+        // TODO add your handling code here:
+        this.PopulartbListaChamados ("SELECT *, DATE_FORMAT(data_abertura_chamado, '%d/%m/%Y') AS data_formatada FROM chamado WHERE grupo_chamado LIKE 'ACESSO';");
+    }//GEN-LAST:event_btnAcessoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -493,8 +598,13 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnAcesso;
+    private javax.swing.JButton btnHardware;
+    private javax.swing.JButton btnRedes;
+    private javax.swing.JButton btnServicoTi;
+    private javax.swing.JButton btnSoftware;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -510,11 +620,11 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private javax.swing.JLabel lbConsultar;
     private javax.swing.JLabel lbListaColaboradores;
     private javax.swing.JLabel lbMenu;
+    private javax.swing.JLabel lbNomeFiltrar;
     private javax.swing.JLabel lbNovoChamado;
     private javax.swing.JLabel lbNovoColaborador;
     private javax.swing.JLabel lbNovoUsuario;
     private javax.swing.JLabel lbRelatorio;
     private javax.swing.JTable tbListaChamados;
-    private javax.swing.JTextField txtPesquisarChamado;
     // End of variables declaration//GEN-END:variables
 }

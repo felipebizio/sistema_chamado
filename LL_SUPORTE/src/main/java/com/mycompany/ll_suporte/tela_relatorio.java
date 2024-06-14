@@ -4,12 +4,18 @@
  */
 package com.mycompany.ll_suporte;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author felip
  */
 public class tela_relatorio extends javax.swing.JFrame {
-
+    /*conexao = DriverManager.getConnection(url, usuario, senha);
+    statement = conexao.prepareStatement(sql);
+    statement.execute();*/
     /**
      * Creates new form tela_relatorio
      */

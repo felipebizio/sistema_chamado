@@ -82,6 +82,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         rbtnAtendente = new javax.swing.JRadioButton();
         rbtnDesenvolvedor = new javax.swing.JRadioButton();
         btnVoltar = new javax.swing.JButton();
+        rbtnTodos = new javax.swing.JRadioButton();
         lbLogo = new javax.swing.JLabel();
         lbNovoChamado = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -142,9 +143,19 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
         rbtnAtendente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbtnAtendente.setText("ATENDENTE");
+        rbtnAtendente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnAtendenteActionPerformed(evt);
+            }
+        });
 
         rbtnDesenvolvedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         rbtnDesenvolvedor.setText("DESENVOLVEDOR");
+        rbtnDesenvolvedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnDesenvolvedorActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(123, 150, 212));
         btnVoltar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -156,31 +167,42 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
             }
         });
 
+        rbtnTodos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        rbtnTodos.setText("TODOS");
+        rbtnTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(lbNomeListaColaborador)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnTabelaColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rbtnAtendente)
-                                .addGap(41, 41, 41)
-                                .addComponent(rbtnDesenvolvedor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                                .addComponent(txtPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(btnPesquisar))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbtnDesenvolvedor)
+                            .addComponent(rbtnAtendente)
+                            .addComponent(rbtnTodos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnPesquisar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(lbNomeListaColaborador))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(spnTabelaColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 52, Short.MAX_VALUE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -188,18 +210,28 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(lbNomeListaColaborador)
-                .addGap(57, 57, 57)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesquisar)
-                    .addComponent(txtPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbtnDesenvolvedor)
-                    .addComponent(rbtnAtendente))
-                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPesquisar)
+                            .addComponent(txtPesquisarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtnTodos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtnAtendente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtnDesenvolvedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(spnTabelaColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
+
+        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoChamado.setText("NOVO CHAMADO");
@@ -452,6 +484,28 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
             objeto2.setVisible(true);
     }//GEN-LAST:event_tblTabelaColaboradorMouseClicked
 
+    private void rbtnDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDesenvolvedorActionPerformed
+        // TODO add your handling code here:
+        rbtnAtendente.setSelected(false);
+        rbtnTodos.setSelected(false);        
+        this.PopularListaColaborador ("SELECT * FROM funcionario WHERE cargo LIKE 'DESENVOLVEDOR';");                
+
+    }//GEN-LAST:event_rbtnDesenvolvedorActionPerformed
+
+    private void rbtnAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAtendenteActionPerformed
+        // TODO add your handling code here:
+        rbtnDesenvolvedor.setSelected(false);
+        rbtnTodos.setSelected(false);
+        this.PopularListaColaborador ("SELECT * FROM funcionario WHERE cargo LIKE 'ATENDENTE';");
+    }//GEN-LAST:event_rbtnAtendenteActionPerformed
+
+    private void rbtnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTodosActionPerformed
+        // TODO add your handling code here:
+        rbtnDesenvolvedor.setSelected(false);
+        rbtnAtendente.setSelected(false);
+        this.PopularListaColaborador ("SELECT * FROM funcionario;");
+    }//GEN-LAST:event_rbtnTodosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -511,6 +565,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
     private javax.swing.JLabel lbRelatorio;
     private javax.swing.JRadioButton rbtnAtendente;
     private javax.swing.JRadioButton rbtnDesenvolvedor;
+    private javax.swing.JRadioButton rbtnTodos;
     private javax.swing.JScrollPane spnTabelaColaborador;
     private javax.swing.JTable tblTabelaColaborador;
     private javax.swing.JTextField txtPesquisarFuncionario;

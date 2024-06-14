@@ -29,13 +29,13 @@ public class tela_login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lb_nome_login = new javax.swing.JLabel();
-        txtsenha = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         lbSenha = new javax.swing.JLabel();
-        pwdSenha = new javax.swing.JPasswordField();
         lbEsqueci = new javax.swing.JLabel();
         btnLogar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        pwdSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,14 +46,18 @@ public class tela_login extends javax.swing.JFrame {
         lb_nome_login.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lb_nome_login.setText("Login do Usuário");
 
-        txtsenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtsenha.setForeground(new java.awt.Color(204, 204, 204));
-        txtsenha.setText("Digite seu CPF...");
+        txtUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusLost(evt);
+            }
+        });
 
         lbSenha.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbSenha.setText("Senha");
-
-        pwdSenha.setText("jPasswo");
 
         lbEsqueci.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbEsqueci.setText("Esqueci minha senha");
@@ -83,7 +87,16 @@ public class tela_login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Users\\lbizio\\Desktop\\TECH_NIGTH_GIT_HUB\\logo inicial.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo inicial.png")); // NOI18N
+
+        pwdSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pwdSenhaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pwdSenhaFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -99,28 +112,28 @@ public class tela_login extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
                             .addComponent(lb_nome_login)
                             .addComponent(lbSenha)
                             .addComponent(lbEsqueci)
-                            .addComponent(pwdSenha)
-                            .addComponent(txtsenha, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))))
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pwdSenha))))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(32, 32, 32)
                 .addComponent(lb_nome_login)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEsqueci)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,6 +195,22 @@ public class tela_login extends javax.swing.JFrame {
         btnLogar.setVisible(true);
     }//GEN-LAST:event_btnLogarActionPerformed
 
+    private void pwdSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdSenhaFocusGained
+        // TODO add your handling code here:   
+    }//GEN-LAST:event_pwdSenhaFocusGained
+
+    private void txtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioFocusGained
+
+    private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
+        // TODO add your handling code here:   
+    }//GEN-LAST:event_txtUsuarioFocusLost
+
+    private void pwdSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdSenhaFocusLost
+        // TODO add your handling code here: 
+    }//GEN-LAST:event_pwdSenhaFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -227,6 +256,6 @@ public class tela_login extends javax.swing.JFrame {
     private javax.swing.JLabel lbSenha;
     private javax.swing.JLabel lb_nome_login;
     private javax.swing.JPasswordField pwdSenha;
-    private javax.swing.JTextField txtsenha;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

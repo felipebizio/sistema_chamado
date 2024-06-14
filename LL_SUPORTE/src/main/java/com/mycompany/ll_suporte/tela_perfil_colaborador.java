@@ -264,6 +264,8 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
+        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
+
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
         lbNomeNovoChado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -452,7 +454,7 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         // TODO add your handling code here:
         tela_perfil_colaborador.this.dispose();
-        tela_menu_rapido btnFechar = new tela_menu_rapido();
+        tela_lista_colaborador btnFechar = new tela_lista_colaborador();
         btnFechar.setVisible(true);
     }//GEN-LAST:event_btnFecharActionPerformed
 
