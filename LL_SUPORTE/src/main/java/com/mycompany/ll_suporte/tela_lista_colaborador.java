@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author felip
  */
 public class tela_lista_colaborador extends javax.swing.JFrame {
-
+        //Conexão com o banco
         Connection conexao = null;
         PreparedStatement statement = null;
 
@@ -27,7 +27,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
         String senha = "154869"; // 154869
-        
+        //Variavel id2 criado publicamente para ser utilizado no preenchimento da lista
         public static String id2;
 
         
@@ -35,9 +35,9 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
         initComponents();
     }
     
-    
+        //Public criada para popular a lista de colaborador
     public void PopularListaColaborador (String sql){
-        
+        //Conexão com o banco e preenchimento da tabela
             try {
                 conexao = DriverManager.getConnection(url, usuario, senha);
                 statement = conexao.prepareStatement(sql);
@@ -467,17 +467,17 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        // Ao abrir a tela dar um atualizar e um select na lista de colaborador
         this.PopularListaColaborador ("SELECT id_funcionario, nome_completo_funcionario, cpf_funcionario, cargo, email_funcionario,telefone_funcionario "
                 + " from funcionario ");
     }//GEN-LAST:event_formWindowOpened
 
     private void tblTabelaColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelaColaboradorMouseClicked
-        // TODO add your handling code here:
-        
-            int linha1 = tblTabelaColaborador.getSelectedRow();
+        //Criando o vetor para chamar a posição do chamado na lista
+             int linha1 = tblTabelaColaborador.getSelectedRow();// Selecionar a linha
 
-            id2 = tblTabelaColaborador.getValueAt(linha1, 0).toString();
+            id2 = tblTabelaColaborador.getValueAt(linha1, 0).toString();//Pegar ID como referencia na tabela
+
 
             tela_lista_colaborador.this.dispose();
             tela_perfil_colaborador objeto2 = new tela_perfil_colaborador();
@@ -485,24 +485,27 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_tblTabelaColaboradorMouseClicked
 
     private void rbtnDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDesenvolvedorActionPerformed
-        // TODO add your handling code here:
+        // Ao clicar em um RB automaticamente desativa o outro
         rbtnAtendente.setSelected(false);
-        rbtnTodos.setSelected(false);        
+        rbtnTodos.setSelected(false);   
+        //Seleção da tabela apenas de colaboradores que tem o cargo de desenvovedor
         this.PopularListaColaborador ("SELECT * FROM funcionario WHERE cargo LIKE 'DESENVOLVEDOR';");                
 
     }//GEN-LAST:event_rbtnDesenvolvedorActionPerformed
 
     private void rbtnAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAtendenteActionPerformed
-        // TODO add your handling code here:
+        // Ao clicar em um RB automaticamente desativa o outro
         rbtnDesenvolvedor.setSelected(false);
         rbtnTodos.setSelected(false);
+        //Seleção da tabela apenas de colaboradores que tem o cargo de atendente
         this.PopularListaColaborador ("SELECT * FROM funcionario WHERE cargo LIKE 'ATENDENTE';");
     }//GEN-LAST:event_rbtnAtendenteActionPerformed
 
     private void rbtnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnTodosActionPerformed
-        // TODO add your handling code here:
+        // Ao clicar em um RB automaticamente desativa o outro
         rbtnDesenvolvedor.setSelected(false);
         rbtnAtendente.setSelected(false);
+        //Seleção da tabela que filtra todos os chamados
         this.PopularListaColaborador ("SELECT * FROM funcionario;");
     }//GEN-LAST:event_rbtnTodosActionPerformed
 

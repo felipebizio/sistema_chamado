@@ -18,9 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class tela_cadastro_usuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form tela_cadastro_usuario
-     */
+//Conexão com o banco
     Connection conexao = null;
     PreparedStatement statement = null;
     
@@ -117,8 +115,9 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13))
                     .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                     .addComponent(txtEmail)
                     .addComponent(lbEnderecoEmail)
@@ -155,8 +154,8 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(lbLogo)))
@@ -188,6 +187,8 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
            String cpf = txtCPF.getText();
            String telefone = txtTelefone.getText();
            
+            // Validação dos campos (CPF/TELEFONE) **SOMENTE NÚMEROS**
+
            if (!cpf.matches("\\d+") || !telefone.matches("\\d+")) { // Verifica se o texto contém apenas letras
                if (!telefone.matches("\\d*")){
                    JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
@@ -198,6 +199,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                } 
             }else {
                 try {
+                    //Conexão com o banco e insert nos campos da tabela cliente
                     conexao = DriverManager.getConnection(url, usuario, senha);
                     String sql = "INSERT INTO clientes (nome_completo_cliente, cpf_cliente, email_cliente, tel_cliente) VALUES (?,?,?,?)";
                     statement = conexao.prepareStatement(sql);

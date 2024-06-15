@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author felip
  */
 public class tela_detalhe_chamado extends javax.swing.JFrame {
-
+//Conexão com o banco
     int id_chamado = Integer.parseInt(id);
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -33,7 +33,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
      */
         
     public void detalhe_chamado(){
-        
+        //Fazendo o select de uma view e preenchendo os campos com o itens dessa view
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
             statement = conexao.prepareStatement("SELECT * FROM detalhe_chamado WHERE id_chamado = ? ;");
@@ -599,7 +599,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        // Desabilitando as edições dos campos ao abrir a tela
         detalhe_chamado();
         txtNumero.setEnabled(false);
         txtUsuario.setEnabled(false);
@@ -616,8 +616,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-        //txtNumero.setEnabled(true);
+        // Habilitando as edições dos campos ao clicar no botão Editar
         txtUsuario.setEnabled(true);
         txtTitulo.setEnabled(true);
         txtResponsavel.setEnabled(true);
@@ -635,12 +634,10 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         try {
-           /*
-             String prioridade = (String) cbPrioridade.getSelectedItem();*/
-           
+           //Atualizando os campos da tabela chamado ao clicar no botao salvar          
             String sql = "UPDATE chamado SET  titulo_chamado = ?, id_fun = ?, grupo_chamado = ?, status_chamado = ?, data_abertura_chamado = ?,"
                     + "prioridade_chamado = ?, prazo_chamado = ?, descricao_chamado = ?, solucao_chamado = ? WHERE id_chamado = ?";
-            
+        
             statement = conexao.prepareStatement(sql);
             String dia = txtAbertura.getText().substring(0,2);
             String mes = txtAbertura.getText().substring(3,5);
@@ -649,7 +646,6 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
             String grupo = (String) cbGrupoAssunto.getSelectedItem();
             String status = (String) cbStatus.getSelectedItem();
             String prioridade = (String) cbPrioridade.getSelectedItem();
-           // statement.setString(1, txtUsuario.getText());
             statement.setString(1, txtTitulo.getText()); // titulo_chamado
             statement.setString(2, txtResponsavel.getText()); // id_fun
             statement.setString(3, grupo); //GRUPO
@@ -660,7 +656,6 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
             statement.setString(8, txtDescricao.getText()); // descricao_chamado
             statement.setString(9, txtSolucao.getText()); // solucao_chamado
             statement.setInt(10, Integer.parseInt(txtNumero.getText())); // id_chamado
-
             statement.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Alterações salvas com sucesso!");

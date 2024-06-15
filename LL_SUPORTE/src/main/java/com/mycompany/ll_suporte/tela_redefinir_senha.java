@@ -15,6 +15,7 @@ public class tela_redefinir_senha extends javax.swing.JFrame {
     /**
      * Creates new form tela_redefinir_senha
      */
+    //public criada para redefinir as senhas
     public tela_redefinir_senha() {
         initComponents();
     }

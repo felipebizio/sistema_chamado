@@ -20,11 +20,12 @@ import javax.swing.JOptionPane;
  * @author felip
  */
 public class tela_abertura_chamados extends javax.swing.JFrame {
+    
     public int idFun = 0;
+    
+    //Conexão com o banco
     Connection conexao = null;
     PreparedStatement statement = null;
-    
-    
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
     String senha = "154869"; // 154869
@@ -491,7 +492,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbNovoChamadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoChamadoMouseClicked
-        // TODO add your handling code here:
+        // Ao clicar na label Novo Chamado ir para a tela de abertura de chamados
         tela_abertura_chamados.this.dispose();
         tela_abertura_chamados lbNovoChamado = new tela_abertura_chamados();
         lbNovoChamado.setVisible(true);
@@ -501,7 +502,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
             try {
-                // TODO add your handling code here:
+                // Fazer o INSERT na tabela chamados
                 conexao = DriverManager.getConnection(url, usuario, senha);
                 String sql = "INSERT INTO chamado (cpf_clien, grupo_chamado, titulo_chamado, status_chamado, prazo_chamado, prioridade_chamado,"
                         + " descricao_chamado, data_abertura_chamado,id_fun) VALUES (?,?,?,?,?,?,?,?,?)";                      
@@ -536,28 +537,28 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        // Ao clicar no botão cancelar, vai para a tela de menu do sistema
         tela_abertura_chamados.this.dispose();
         tela_menu_rapido btnCancelar = new tela_menu_rapido();
         btnCancelar.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void lbNovoColaboradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoColaboradorMouseClicked
-        // TODO add your handling code here:
+        // Ao clicar na label Novo colaborador vai para a tela de cadastro de colaborador
         tela_abertura_chamados.this.dispose();
         tela_cadastro_colaborador lbNovoColaborador = new tela_cadastro_colaborador();
         lbNovoColaborador.setVisible(true);
     }//GEN-LAST:event_lbNovoColaboradorMouseClicked
 
     private void lbConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConsultarMouseClicked
-        // TODO add your handling code here:
+        // Ao clicar na label consultar vai para a tela de lista de chamados
         tela_abertura_chamados.this.dispose();
         tela_lista_chamados lbConsultar = new tela_lista_chamados();
         lbConsultar.setVisible(true);
     }//GEN-LAST:event_lbConsultarMouseClicked
 
     private void lbNovoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNovoUsuarioMouseClicked
-        // TODO add your handling code here:
+        // Ao clicar na label Novo usuario vai para a tela de cadastro de usuario
         tela_abertura_chamados.this.dispose();
         tela_cadastro_usuario lbNovoUsuario = new tela_cadastro_usuario();
         lbNovoUsuario.setVisible(true);
@@ -565,7 +566,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         try {
-            // TODO add your handling code here:
+            // Código para preencher o CPF do cliente e puxar automaticamente o nome do cliente responsavel pelo CPF preenchido
             String cpf = txtCpf.getText();
             conexao = DriverManager.getConnection(url, usuario, senha);
             String sql = "SELECT nome_completo_cliente FROM clientes WHERE cpf_cliente = (?)";
@@ -608,7 +609,7 @@ public class tela_abertura_chamados extends javax.swing.JFrame {
     }//GEN-LAST:event_cbStatusActionPerformed
 
     private void txtDateAberturaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtDateAberturaAncestorAdded
-        // TODO add your handling code here:
+        // Puxando data e ajustando o fomato de exibição da data
         Date dataHorarioAtual = new Date();
         String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHorarioAtual);
         txtDateAbertura.setText(data);

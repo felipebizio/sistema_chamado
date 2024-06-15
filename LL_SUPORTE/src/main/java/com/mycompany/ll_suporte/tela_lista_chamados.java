@@ -18,22 +18,23 @@ import javax.swing.table.DefaultTableModel;
  * @author felip
  */
 public class tela_lista_chamados extends javax.swing.JFrame {
-
+//Conexão com o banco
     Connection conexao = null;
     PreparedStatement statement = null;
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
     String senha = "154869"; // 154869
-    
+    //Variavel id criado publicamente para ser utilizado no preenchimento da lista
     public static String id;
     
     public tela_lista_chamados() {
         initComponents();
         
     }
-    
+    //Public criada para popular a lista de chamados
     public void PopulartbListaChamados(String sql){
+        //Povoando a lista de chamados
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
             statement = conexao.prepareStatement(sql);
@@ -518,7 +519,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     private void tbListaChamadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbListaChamadosMouseClicked
         // TODO add your handling code here:
                                                     
-     
+            //Criando o vetor para chamar a posição do chamado na lista
             int linha = tbListaChamados.getSelectedRow(); // Selecionar a linha
 
             id = tbListaChamados.getValueAt(linha, 1).toString();//Pegar ID como referencia na tabela

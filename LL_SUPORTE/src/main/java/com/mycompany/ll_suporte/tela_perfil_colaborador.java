@@ -19,8 +19,9 @@ import javax.swing.JOptionPane;
  * @author lramos
  */
 public class tela_perfil_colaborador extends javax.swing.JFrame {
-    
+    //Puxando a variavel para dar um select nos campos de funcionário
     int id_fun = Integer.parseInt(id2);
+    //Conexão com o banco
     Connection conexao = null;
     PreparedStatement statement = null;
 
@@ -32,8 +33,9 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
     /**
      * Creates new form tela_perfil_colaborador
      */
+    //Public criada para popular o perfil do colaborador
     public void perfil_colaborador(){
-       
+       //Selecionando campos da tabela funcionário e preenchendo os campos vazios do perfil do colaborador
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
             statement = conexao.prepareStatement("SELECT * FROM funcionario WHERE id_funcionario = ? ;");
@@ -508,7 +510,7 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_lbConsultarMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        //Ao abrir a tela, os campos não poderão ser alterador
         perfil_colaborador();
         txtId.setEnabled(false);
         txtNomeUsuario.setEnabled(false);
@@ -522,7 +524,7 @@ public class tela_perfil_colaborador extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
-            // TODO add your handling code here:
+            // Atualizando os campos de perfil do colaborador para atualizar no banco
             
             String sql = "UPDATE funcionario SET nome_completo_funcionario = ?, cpf_funcionario = ?, telefone_funcionario = ?,"
                     + "email_funcionario = ?, cargo = ?, anotacoes_funcionario = ? WHERE id_funcionario = ?";

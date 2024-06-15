@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author felip
  */
 public class tela_cadastro_colaborador extends javax.swing.JFrame {
-
+// Conexão com o banco
     Connection conexao = null;
     PreparedStatement statement = null;
     
@@ -261,7 +261,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
         String opcaoSelecionada = null;
         String cpf = txtCpfUsuario.getText();
         String telefone = txtTelefone.getText();
-            
+            // Validação dos campos (CPF/TELEFONE) **SOMENTE NÚMEROS**
             if (!cpf.matches("\\d+") || !telefone.matches("\\d+")) { // Verifica se o texto contém apenas letras
                 //JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campos CPF ou Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                 if (!telefone.matches("\\d*")){
@@ -274,7 +274,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                 
             } else {
                 
-                
+                // Salvando o cargo do colaborador pelo Radio Button
                 if (rbAtendente.isSelected()){
                     opcaoSelecionada = "Atendente";
                 }else if (rbDesenvolvedor.isSelected()){
@@ -283,10 +283,10 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Por favor, selecione um cargo!", "ERRO",JOptionPane.ERROR_MESSAGE);
                 }
                 try {
+                    //Insert dos campos preenchidos na tabela funcionário
                     conexao = DriverManager.getConnection(url, usuario, senha);
                     String sql = "INSERT INTO funcionario (nome_completo_funcionario, senha_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario, cargo) VALUES (?,?,?,?,?,?);";
                     statement = conexao.prepareStatement(sql);
-                    //statement.setString(1,txtNomeUsuario.getText());
                     statement.setString(1,txtNomeUsuario.getText()); // nome_completo_funcionario
                     statement.setString(2,txtSenha.getText()); // senha_funcionario
                     statement.setString(3,txtCpfUsuario.getText()); // cpf_funcionario
@@ -313,12 +313,12 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCpfUsuarioActionPerformed
 
     private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
-        // TODO add your handling code here:  
+        // Desmarcar o radio button automaticamente ao selecionar outro radio button 
         rbDesenvolvedor.setSelected(false);
     }//GEN-LAST:event_rbAtendenteActionPerformed
 
     private void rbDesenvolvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDesenvolvedorActionPerformed
-        // TODO add your handling code here:
+// Desmarcar o radio button automaticamente ao selecionar outro radio button
         rbAtendente.setSelected(false);
     }//GEN-LAST:event_rbDesenvolvedorActionPerformed
 
