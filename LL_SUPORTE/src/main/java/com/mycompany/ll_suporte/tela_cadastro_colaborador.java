@@ -264,12 +264,14 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
             // Validação dos campos (CPF/TELEFONE) **SOMENTE NÚMEROS**
             if (!cpf.matches("\\d+") || !telefone.matches("\\d+")) { // Verifica se o texto contém apenas letras
                 //JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campos CPF ou Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
-                if (!telefone.matches("\\d*")){
+                if (!cpf.matches("\\d*") || (!cpf.matches(""))){
                     JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo Telefone.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                     txtTelefone.requestFocus();
+                    return;
                 } else {
                     JOptionPane.showMessageDialog(null,"Por favor, insira apenas número nos campo CPF.","Entrada Inválida",JOptionPane.ERROR_MESSAGE);
                     txtCpfUsuario.requestFocus(); // Requer foco novamente se a entrada for inválida
+                    return;
                 }
                 
             } else {
@@ -281,6 +283,7 @@ public class tela_cadastro_colaborador extends javax.swing.JFrame {
                     opcaoSelecionada = "Desenvolvedor";
                 }else{
                     JOptionPane.showMessageDialog(null,"Por favor, selecione um cargo!", "ERRO",JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 try {
                     //Insert dos campos preenchidos na tabela funcionário

@@ -44,13 +44,13 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                 try {
                     txtNumero.setText(resultado.getString("id_chamado"));
                     txtUsuario.setText(resultado.getString("nome_completo_cliente"));
-                    cbGrupoAssunto.addItem(resultado.getString("grupo_chamado")); //GRUPO
+                    cbGrupoAssunto.setSelectedItem(resultado.getString("grupo_chamado")); //GRUPO
                     txtTitulo.setText(resultado.getString("titulo_chamado"));
                     txtResponsavel.setText(resultado.getString("id_fun"));
                     txtAbertura.setText(resultado.getString("data_formatada"));
-                    txtAbertura.setText(resultado.getString("data_formatada"));//STATUS
+                    cbStatus.setSelectedItem(resultado.getString("status_chamado"));//STATUS
                     txtPrazo.setText(resultado.getString("prazo_chamado"));
-                    txtAbertura.setText(resultado.getString("data_formatada"));//PRIORIDADE
+                    cbPrioridade.setSelectedItem(resultado.getString("prioridade_chamado"));//PRIORIDADE
                     txtDescricao.setText(resultado.getString("descricao_chamado"));
                     txtSolucao.setText(resultado.getString("solucao_chamado"));
                 } catch (SQLException ex) {

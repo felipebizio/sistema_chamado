@@ -11,6 +11,7 @@ package com.mycompany.ll_suporte;
 public class LL_SUPORTE {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        tela_login obj = new tela_login();
+        obj.setVisible(true);
     }
 }
