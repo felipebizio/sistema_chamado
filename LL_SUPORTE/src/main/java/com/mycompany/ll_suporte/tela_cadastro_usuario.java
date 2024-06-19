@@ -25,7 +25,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = "154869"; // 154869
+    String senha = ""; // 154869
             
     
     
@@ -98,7 +98,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
             }
         });
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo maior.png")); // NOI18N
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\MDEOLINDO\\Desktop\\PROG_APP_GIT\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo maior.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,7 +125,7 @@ public class tela_cadastro_usuario extends javax.swing.JFrame {
                     .addComponent(lbNomeCPF)
                     .addComponent(lbNomeNomeCompleto)
                     .addComponent(txtNomeCompleto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbLogo)
                 .addGap(106, 106, 106))
         );

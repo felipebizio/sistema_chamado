@@ -356,7 +356,7 @@
         <Component class="javax.swing.JLabel" name="lbLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\felip\Documents\GitHub\sistema_chamado\LL_SUPORTE\src\main\java\com\mycompany\ll_suporte\imagem\logo canto superior.png"/>
+              <Image iconType="2" name="D:\Users\MDEOLINDO\Desktop\PROG_APP_GIT\sistema_chamado\LL_SUPORTE\src\main\java\com\mycompany\ll_suporte\imagem\logo canto superior.png"/>
             </Property>
           </Properties>
         </Component>

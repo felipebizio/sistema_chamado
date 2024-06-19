@@ -26,7 +26,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = "154869"; // 154869
+        String senha = ""; // 154869
         //Variavel id2 criado publicamente para ser utilizado no preenchimento da lista
         public static String id2;
 
@@ -231,7 +231,7 @@ public class tela_lista_colaborador extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        lbLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\MDEOLINDO\\Desktop\\PROG_APP_GIT\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
 
         lbNovoChamado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoChamado.setText("NOVO CHAMADO");

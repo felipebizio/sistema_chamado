@@ -27,7 +27,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost/ll_suporte";
         String usuario = "root";
-        String senha = "154869"; // 154869
+        String senha = ""; // 154869
     /**
      * Creates new form tela_detalhe_chamado
      */
@@ -395,8 +395,6 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
-
         lbNomeMenu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNomeMenu.setText("MENU");
         lbNomeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -406,6 +404,8 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
         });
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+
+        lbLogo.setIcon(new javax.swing.ImageIcon("D:\\Users\\MDEOLINDO\\Desktop\\PROG_APP_GIT\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -469,7 +469,7 @@ public class tela_detalhe_chamado extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
                                 .addComponent(lbLogo)
-                                .addGap(82, 82, 82))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel3)

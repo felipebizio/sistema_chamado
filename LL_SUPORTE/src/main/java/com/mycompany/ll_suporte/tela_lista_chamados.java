@@ -24,7 +24,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
     
     String url = "jdbc:mysql://localhost/ll_suporte";
     String usuario = "root";
-    String senha = "154869"; // 154869
+    String senha = ""; // 154869
     //Variavel id criado publicamente para ser utilizado no preenchimento da lista
     public static String id;
     
@@ -277,7 +277,7 @@ public class tela_lista_chamados extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\Documents\\GitHub\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Users\\MDEOLINDO\\Desktop\\PROG_APP_GIT\\sistema_chamado\\LL_SUPORTE\\src\\main\\java\\com\\mycompany\\ll_suporte\\imagem\\logo canto superior.png")); // NOI18N
 
         lbNovoColaborador.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbNovoColaborador.setText("NOVO COLABORADOR");
